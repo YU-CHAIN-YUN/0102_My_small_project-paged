@@ -1,0 +1,576 @@
+/* ____________________輪播圖塔羅介紹_________________________ */
+/* 輪播圖項目淡入效果 */
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-fade .carousel-item.active {
+    opacity: 1;
+}
+
+/* 調整輪播指示器的位置 */
+.carousel-indicators {
+    bottom: 0px;
+    /* 調整按鈕的位置 */
+}
+
+/* 設定圖片大小，適應導覽列上方 */
+.carousel-item img {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    /* 平滑過渡 */
+    width: 100%;
+    /* 確保圖片自適應螢幕大小 */
+    max-height: 300px;
+    /* 限制圖片最大高度 */
+    object-fit: cover;
+    /* 確保圖片不會變形，適應容器 */
+}
+
+.carousel-item:hover img {
+    opacity: 0.5;
+    /* 淡化圖片 */
+    transform: scale(1.05);
+    /* 輕微放大圖片 */
+}
+
+/* 文字介紹浮動框設置 */
+.carousel-caption {
+    position: absolute;
+    top: 70%;
+    right: -300px;
+    /* 初始位置，位於右側外面 */
+    transform: translateY(-50%);
+    /* 垂直居中 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明背景 */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 25px 150px;
+    /* 圓弧外框 */
+    opacity: 0;
+    /* 默認隱藏 */
+    transition: all 0.5s ease;
+    /* 漸變效果 */
+}
+
+/* 滑鼠懸停時，文字從右側滑入 */
+.carousel-item:hover .carousel-caption {
+    right: 10px;
+    /* 移動到圖片右側 */
+    opacity: 1;
+    /* 顯示文字 */
+}
+
+/* _____________________navbar導覽列_______________________ */
+/* 自定義導航欄樣式 */
+.navbar-custom {
+    position: sticky;
+    /* 讓導航欄黏在頂部 */
+    top: 0;
+    z-index: 1030;
+    /* 確保導航欄位於最上層 */
+    background: linear-gradient(rgba(99, 96, 96, 0.443), rgba(255, 255, 255, 0.075));
+    /* 背景漸層透明 */
+    border-radius: 30px;
+    /* 圓角 */
+    backdrop-filter: blur(2px);
+    /* 背景模糊效果 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* 陰影 */
+    margin-right: 10px;
+    margin-left: 10px;
+    /* 兩側距離 */
+}
+
+.navbar-custom .nav-link {
+    font-weight: bold;
+    /* 字體加粗 */
+    font-size: large;
+    color: #a9a4a4;
+    /* 預設文字顏色 */
+    transition: color 0.3s ease;
+    /* 平滑過渡效果 */
+}
+
+.navbar-custom .nav-link:hover {
+    color: #ffffff;
+    /* 滑鼠懸停時文字顏色 */
+}
+
+/* ______________________更換背景顏色按鈕_________________________ */
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    transition: background 0.5s ease;
+    background: #000000;
+    /* 預設背景為黑色 */
+}
+
+.color-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+/* 顏色預覽 */
+.color-option-1 {
+    background: linear-gradient(to right, #f3e6ff, #d6f5ff);
+}
+
+.color-option-2 {
+    background: linear-gradient(to right, #f2d6ff, #b3e0ff);
+}
+
+.color-option-3 {
+    background: linear-gradient(to right, #ffd6e5, #ffcc99);
+}
+
+.color-option-4 {
+    background: linear-gradient(to right, #e0f7fa, #b2ebf2);
+}
+
+.color-option-5 {
+    background: #000;
+    /* 黑色選項 */
+}
+
+/* 按鈕樣式 */
+.dropdown-toggle {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #fff;
+    /* 明顯邊框 */
+    transition: background 0.5s ease, border-color 0.5s ease;
+    /* 平滑過渡 */
+    border-radius: 50%;
+}
+
+
+/* 下拉選單容器樣式 */
+.btn-group {
+    display: none;
+    /* 初始隱藏 */
+    background-color: rgba(136, 131, 131, 0.183);
+    width: 10px;
+}
+
+.btn1:hover {
+    background-color: #0000002f;
+}
+
+/* ____________________全部字體樣式__________________________ */
+/* 介紹塔羅、塔羅牌內容 */
+.text1 {
+    font-family: "微软雅黑", "Dosis", sans-serif;
+
+    text-align: left;
+    position: relative;
+}
+
+.effect01 {
+    color: #fbfbfb;
+    text-shadow: 3px -3px 3px #000000;
+}
+
+/* 塔羅牌主題 */
+.text2 {
+    font-family: "微软雅黑", "Dosis", sans-serif;
+    text-align: left;
+    position: relative;
+}
+
+.effect02 {
+    color: #d2e4e4;
+    text-shadow: 3px -3px 3px #0e0d0d;
+}
+
+/* ____________________塔羅牌文字、圖片框___________________________ */
+/* 塔羅牌文字 */
+.textbox1 {
+    border-radius: 70px;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    /* 水平置中 */
+    align-items: center;
+    /* 垂直置中 */
+    height: auto;
+    /* 必須設定高度才能垂直居中 */
+}
+
+/* 圖片框設定 */
+.imgbox1 {
+    display: flex;
+    justify-content: center;
+    /* 水平置中 */
+    align-items: center;
+    /* 垂直置中 */
+    height: auto;
+    /* 必須設定高度才能垂直居中 */
+}
+
+/* ____________________動畫效果_____________________________________ */
+/* 塔羅介紹動畫 */
+.textbox0 {
+    opacity: 0;
+    /* 初始為隱藏 */
+    transform: translateY(20px);
+    /* 初始位置稍微向下 */
+    transition: all 0.8s ease-in-out;
+}
+
+.textbox0.reveal {
+    opacity: 1;
+    /* 顯示文字 */
+    transform: translateY(0);
+    /* 回到原位置 */
+}
+
+/* 塔羅牌介紹滾動效果(隱藏) */
+.textbox1 div {
+    opacity: 0;
+    transform: translateY(20px);
+    /* 初始位置稍微向下 */
+    transition: all 0.8s ease-in-out;
+}
+
+/* 當文字介紹進入可視區域時觸發動畫 */
+.textbox1 div.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    /* 回到原位置 */
+}
+
+/* 塔羅牌圖案滑動效果 */
+.imgbox1 img {
+    opacity: 0;
+    transform: translateY(20px);
+    /* 初始位置稍微向下 */
+    transition: all 0.8s ease-in-out;
+}
+
+/* 當圖片進入可視區域時觸發動畫 */
+.imgbox1 img.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    /* 回到原位置 */
+}
+
+/* ___________________button按鈕效果_______________________________ */
+/* 開始抽牌按鈕 */
+.button1 {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #f9f7f7;
+    background-color: #9e39a7;
+    border: none;
+    border-radius: 15px;
+    /* 圓角 */
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* 按鈕陰影 */
+}
+
+.button1:hover {
+    background-color: #750971;
+    /* 滑鼠懸停效果 */
+}
+
+.button1:active {
+    transform: scale(0.95);
+    /* 按壓時縮小 */
+    background-color: #470838;
+    /* 按壓時顏色改變 */
+}
+
+/* ______________________跑馬圖____________________________________ */
+.image-carousel-container {
+    overflow: hidden;
+    position: relative;
+    left: 10%;
+    width: 80%;
+    height: auto;
+    /* background-color: #b2ebf2; */
+}
+
+.image-carousel {
+    display: flex;
+    animation: image-carousel-scroll linear infinite;
+}
+
+.image-carousel img {
+    width: auto;
+    height: 200px;
+    object-fit: cover;
+    padding: 10px;
+}
+
+@keyframes image-carousel-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* ______________________footer______________________________ */
+footer {
+    background: rgba(117, 34, 34, 0.74);
+    /* 半透明背景 */
+    border-radius: 40px 40px 0 0;
+    /* 上兩角圓弧 */
+    padding-top: 7rem;
+    position: relative;
+}
+
+.my_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    /* 水平置中 */
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d0aa4a;
+    /* 黃色文字作為對比 */
+}
+
+.my_footer2 a,
+.my_footer3 a {
+    margin: 0.5em 0;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.my_footer2 a:hover,
+.my_footer3 a:hover {
+    color: #ffcc00;
+    /* hover 時改為黃色 */
+    transform: scale(1.1);
+    /* hover 時放大 */
+    text-shadow: 0 0 5px #ffcc00;
+}
+
+.my_footer2 a,
+.my_footer3 a {
+    display: block;
+    text-decoration: none;
+}
+
+/* ______________________輪播圖_________________________________ */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    height: 500px;
+    /* for touch screen */
+    touch-action: none;
+}
+
+#drag-container,
+#spin-container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateX(-10deg);
+    transform: rotateX(-10deg);
+}
+
+#drag-container img,
+#drag-container video {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 200px;
+    font-size: 50px;
+    text-align: center;
+    -webkit-box-shadow: 0 0 8px #fff;
+    box-shadow: 0 0 8px #fff;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+}
+
+#drag-container img:hover,
+#drag-container video:hover {
+    -webkit-box-shadow: 0 0 15px #fffd;
+    box-shadow: 0 0 15px #fffd;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+}
+
+#drag-container p {
+    font-family: Serif;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+    transform: translate(-50%, -50%) rotateX(90deg);
+    color: #fff;
+}
+
+#ground {
+    width: 800px;
+    height: 900px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+    transform: translate(-50%, -50%) rotateX(90deg);
+    background: -webkit-radial-gradient(center center,
+            farthest-side,
+            #9993,
+            transparent);
+}
+
+#music-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+
+    to {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+
+    to {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+}
+
+@-webkit-keyframes spinRevert {
+    from {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+
+    to {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes spinRevert {
+    from {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+
+    to {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+}
+
+/* ______________________塔羅牌意___________________________________ */
+/* 彈框內牌意 */
+.gallery img {
+    width: 8rem;
+    height: 12rem;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-body img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 標題樣式 */
+#imageModalLabel {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 文字內容樣式 */
+#modalDescription {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.6;
+    text-align: left;
+    color: #555;
+}
+
+/* 分段落標題 */
+.modal-body .section-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    color: #333;
+}
+
+/* 關鍵詞、正位、逆位、牌面含義的段落間距 */
+.modal-body .section-content {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+p {
+    font-family: "微软雅黑", "Dosis", sans-serif;
+    text-align: center;
+    position: relative;
+    color: #6b7b7e;
+}
