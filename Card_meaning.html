@@ -103,13 +103,14 @@
         </div>
     </div>
 </nav><br><br><br><br>
+<!-- 塔羅牌意 -->
 <div>
     <div class="container">
         <!-- 大阿卡那 -->
-        <h1 class="text-center mb-4 text3 effect03" id="Card_meaning">
+        <h1 class="text-center mb-4 text2 effect02" id="Card_meaning">
             大阿卡那
         </h1>
-        <h5 class="text-center effect03">點擊圖片查看詳細內容</h5>
+        <h5 class="text-center effect02">點擊圖片查看詳細內容</h5>
         <div class="gallery d-flex flex-wrap justify-content-center">
             <!-- 圖片列表 -->
             <!-- 愚者 -->
@@ -357,10 +358,10 @@
             <!-- 可繼續添加更多圖片 -->
         </div>
         <!-- 小阿卡那(權杖) -->
-        <h1 class="text-center mb-4 text3 effect03" style="font-weight: bold">
+        <h1 class="text-center mb-4 text2 effect02" style="font-weight: bold">
             小阿卡那
         </h1>
-        <h3 class="text-center effect03" style="font-weight: bold">
+        <h3 class="text-center effect02" style="font-weight: bold">
             權杖系列
         </h3>
         <div class="gallery d-flex flex-wrap justify-content-center">
@@ -522,7 +523,7 @@
             <!-- 可繼續添加更多圖片 -->
         </div>
         <!-- 小阿卡那(聖杯) -->
-        <h3 class="text-center effect03" style="font-weight: bold">
+        <h3 class="text-center effect02" style="font-weight: bold">
             聖杯系列
         </h3>
         <div class="gallery d-flex flex-wrap justify-content-center">
@@ -684,7 +685,7 @@
             <!-- 可繼續添加更多圖片 -->
         </div>
         <!-- 小阿卡那(寶劍) -->
-        <h3 class="text-center effect03" style="font-weight: bold">
+        <h3 class="text-center effect02" style="font-weight: bold">
             寶劍系列
         </h3>
         <div class="gallery d-flex flex-wrap justify-content-center">
@@ -846,7 +847,7 @@
             <!-- 可繼續添加更多圖片 -->
         </div>
         <!-- 小阿卡那(錢幣) -->
-        <h3 class="text-center effect03" style="font-weight: bold">
+        <h3 class="text-center effect02" style="font-weight: bold">
             錢幣系列
         </h3>
         <div class="gallery d-flex flex-wrap justify-content-center">
@@ -1009,39 +1010,69 @@
         </div>
     </div>
     <!-- 模態框 -->
-    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true"
-        style="background-color: rgba(44, 42, 42, 0.3)">
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content" style="background-color: rgb(255, 255, 255)">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="imageModalLabel">塔羅牌意</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <img id="modalImage" src="" alt="" />
+                    <img id="modalImage" src="" alt="">
                     <div id="modalDescription" class="mt-3"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        關閉
-                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        // 事件委派：監聽整個 body，避免局限於單一 gallery
+        document.body.addEventListener("click", function (event) {
+            if (
+                event.target.tagName === "IMG" &&
+                event.target.closest(".gallery")
+            ) {
+                const modalImage = document.getElementById("modalImage");
+                const modalDescription = document.getElementById("modalDescription");
+                const modalTitle = document.getElementById("imageModalLabel");
+
+                // 更新模態框的圖片和標題
+                modalImage.src = event.target.src;
+                modalImage.alt = event.target.alt;
+                modalTitle.textContent = event.target.alt; // 更新模態框的標題為卡片名稱
+
+                // 解析並顯示圖片對應的描述
+                const description = JSON.parse(event.target.dataset.description);
+
+                // 格式化顯示每個段落
+                const keywordSection = `<p class="section-title">關鍵詞</p><p class="section-content">${description.keyword}</p>`;
+                const uprightSection = `<p class="section-title">正位</p><p class="section-content">${description.upright}</p>`;
+                const reversedSection = `<p class="section-title">逆位</p><p class="section-content">${description.reversed}</p>`;
+                const meaningSection = `<p class="section-title">牌面含義</p><p class="section-content">${description.meaning}</p>`;
+
+                // 更新模態框的內容
+                modalDescription.innerHTML =
+                    keywordSection + uprightSection + reversedSection + meaningSection;
+            }
+        });
+
+        // 塔羅牌意框
+        function expandImage(title, content, imageUrl) {
+            document.getElementById("expanded-title").innerText = title;
+            document.getElementById("expanded-content").innerText = content;
+            document.getElementById("expanded-image").src = imageUrl;
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("expanded").style.display = "block";
+        }
+
+        function closeExpanded() {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("expanded").style.display = "none";
+        }
+    </script>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- _________________________footer_______________________________________________ -->
 <footer>
     <div class="my_footer box" style="height:20em;">
