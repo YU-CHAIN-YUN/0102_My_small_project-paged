@@ -47,3 +47,16 @@ const duration = totalWidth / 80; // 調整滾動速度（100px/sec）
 
 carousel.style.animationDuration = `${duration}s`;
 // ____________________________________________________________________________
+// 塔羅牌陣解釋框
+function expandImage(title, content, imageUrl) {
+    document.getElementById("expanded-title").innerText = title;
+    document.getElementById("expanded-content").innerText = content;
+    document.getElementById("expanded-image").src = imageUrl;
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("expanded").style.display = "block";
+}
+
+function closeExpanded() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("expanded").style.display = "none";
+}

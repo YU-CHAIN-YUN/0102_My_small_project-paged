@@ -21,8 +21,9 @@
         crossorigin="anonymous"></script>
     <!-- 引用自己的js -->
     <script src="./my_js.js" defer></script> <!-- 將 <script> 放在 <head> 中，defer：腳本會在 HTML 完全解析完後執行，執行順序按照出現順序。 -->
-    <!-- 引用自己的css -->
+    <!-- 引用自己的牌陣css -->
     <link rel="stylesheet" href="./my_css.css">
+    <link rel="stylesheet" href="./card_array.css">
 
     <!-- ____________________________________________________________________________________________ -->
 
@@ -45,16 +46,232 @@
     </script>
     <br><br><br>
 
+    <!-- 塔羅牌陣使用 -->
+    <div class="container content-center">
+        <div class="card_array">
+            <h1 class="my-4 text2 effect02 text-center" style="font-style: italic" id="use_card_array">
+                牌陣及使用步驟說明
+            </h1>
+            <br />
 
+            <img class="card_array_picture img-fluid mb-4" src="./my_image/tarot array.jpg" alt="塔羅牌陣示例圖"
+                style="width: 280px;height: 400px;" />
+            <br /><br /><br />
+            <div class="steps">
+                <h2 class="text2 effect02 text-center">新手進行塔羅牌時必了解４步驟</h2>
+                <br />
+                <div class="accordion mt-3" id="stepsAccordion">
+                    <!-- 第一步 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="step1Header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#step1" aria-expanded="true" aria-controls="step1"
+                                style="background-color: #857777; color: #dae0e1">
+                                1. 了解自己的提問...
+                            </button>
+                        </h2>
+                        <div id="step1" class="accordion-collapse collapse show" aria-labelledby="step1Header"
+                            data-bs-parent="#stepsAccordion">
+                            <div class="accordion-body">
+                                多數人對於自己的心中的問題總是不夠清楚，想獲得答案是自己的還是對方的心情、給予自己執行上的建議還是單純想知道做完這件事後的運勢。<br />
+                                當我們用模糊不清楚的方式進行問題，自然也只能得到模糊的答案，進行塔羅占卜時，非常需要清楚而直白的問題。<br />
+                                尤其塔羅牌占卜並不是單純進行吉凶預兆，而是給予我們對於問題本身提供不同的見解與思考方式的對話，因此理解自己想問的問題非常重要。<br />
+                                ．好的問題：「該怎麼做才能找到彼此契合的戀人？」<br />
+                                ．不建議的問題：「為什麼我沒有情人？」<br />
+                                問問題的方式請以自己「想怎麼做？」的想法，搭配「該如何做才能加以實現」這樣的形式對策，才能得到較明確而詳細的回饋。
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 第二步 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="step2Header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#step2" aria-expanded="false" aria-controls="step2"
+                                style="background-color: #a39393; color: #dae0e1">
+                                2. 使用牌陣，找到解讀的方向...
+                            </button>
+                        </h2>
+                        <div id="step2" class="accordion-collapse collapse" aria-labelledby="step2Header"
+                            data-bs-parent="#stepsAccordion">
+                            <div class="accordion-body">
+                                決定完問題後，可以透過牌陣來得出自己想要的解答，牌陣可以因應問題的方式以單張牌／二選一／時間之流等牌陣來進行占卜。<br />
+                                建議在占卜前，先抽一張「現在的自己處於何者狀況？」的牌，給予此刻自己詮釋、了解現階段自己的心理狀態。
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 第三步 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="step3Header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#step3" aria-expanded="false" aria-controls="step3"
+                                style="background-color: #857777; color: #dae0e1">
+                                3. 洗牌及排列...
+                            </button>
+                        </h2>
+                        <div id="step3" class="accordion-collapse collapse" aria-labelledby="step3Header"
+                            data-bs-parent="#stepsAccordion">
+                            <div class="accordion-body">
+                                塔羅牌占卜是透過偶然抽出的牌進行解讀，所以每次進行詢問時都需要重新洗牌、隨機將牌卡排列才能得到相對應的解答。<br />
+                                而透過轉動牌卡的過程，也能讓自己重新集中精神，並找出心中的那張解答卡。
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 第四步 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="step4Header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#step4" aria-expanded="false" aria-controls="step4"
+                                style="background-color: #a39393; color: #dae0e1">
+                                4. 解讀牌面，占卜後留下紀錄...
+                            </button>
+                        </h2>
+                        <div id="step4" class="accordion-collapse collapse" aria-labelledby="step4Header"
+                            data-bs-parent="#stepsAccordion">
+                            <div class="accordion-body">
+                                想著自己的問題後，再翻開牌卡，詳細解讀上頭顯示的文字與提醒，這是你自身潛意識與牌卡解答相連的象徵。<br />
+                                塔羅牌占卜的準確度會隨著占卜的次數而提升，在解讀的過程中也會因為次數多而更加得心應手；因此很也很建議在每次占卜完後都做簡單的筆記、記錄此次的問題與解答。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+    <hr />
+    <br /><br />
+    <!-- 塔羅牌陣 -->
+    <h1 class="text2 effect02 text-center" id="Common_card_formations">常見牌陣</h1>
+    <div class="container py-5">
+        <div class="row gy-4">
+            <!-- 單張牌陣 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="image-container">
+                    <div style="text-align: center;display: flex;justify-content: center;align-items: center;">
+                        <img src="./my_image/0單張牌.jpg" style="height:190px;width: 160px;"/>
+                    </div>
+                    <div class="description">
+                        <div class="title">✦ 單張牌：以一問一答的方式引出答案</div>
+                        <div class="content text-truncate">
+                            多用於沒有時間限制，想直截了當得到解答時使用；除此之外也能用於日常對於未來的運勢測驗，得出簡單的預測。
+                            建議的問題：想掌握目前的狀況、想知道自己／對方的心情、想得到接下來的發展、想知道接下來該如何執行、想得到針對式的單一問題解答。
+                            可嘗試用這些方式問問題：今天該注意什麼事情？那個人的態度突然變冷淡，對方現在的想法是？
+                        </div>
+                        <br /><br />
+                        <button class="read-more"
+                            onclick="expandImage('✦ 單張牌：以一問一答的方式引出答案', '多用於沒有時間限制，想直截了當得到解答時使用；除此之外也能用於日常對於未來的運勢測驗，得出簡單的預測。建議的問題：想掌握目前的狀況、想知道自己／對方的心情、想得到接下來的發展、想知道接下來該如何執行、想得到針對式的單一問題解答。可嘗試用這些方式問問題：今天該注意什麼事情？那個人的態度突然變冷淡，對方現在的想法是？.', src='./my_image/0單張牌.jpg')">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- 三張牌陣 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="image-container">
+                    <img src="./my_image/1三張牌牌陣.png" />
+                    <div class="description">
+                        <div class="title">✦ 三張牌｜時間之流：</div>
+                        <div class="content text-truncate">
+                            過去➊ 》現在➋ 》未來➌ ; 身➊ 》心➋ 》靈➌ ; 原因➊ 》目前結果➋
+                            》建言➌ ; 建議➊ 》建議➋ 》建議➌
+                        </div>
+                        <br /><br />
+                        <button class="read-more"
+                            onclick="expandImage('✦ 三張牌｜時間之流：', '過去➊ 》現在➋ 》未來➌ ==>在解的時候，請像說故事一樣，將過去現在未來說清楚 ; 身➊ 》心➋ 》靈➌ ==>建議問法：請問在近期身心靈方面有什麼要注意的地方？; 原因➊ 》目前結果➋ 》建言➌ ==>建議問法：針對目前卡關的點，我能做些什麼？; 建議➊ 》建議➋ 》建議➌ ==>想找到心儀的另一半，請牌卡給我3個感情的建議', './my_image/1三張牌牌陣.png')">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- 聖三角陣 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="image-container">
+                    <img src="./my_image/2聖三角.png" />
+                    <div class="description">
+                        <div class="title">✦ 三張牌｜聖三角牌陣：</div>
+                        <div class="content text-truncate">
+                            我以為的狀態➊ 》真實的狀態➋ 》建言➌
+                        </div>
+                        <br /><br />
+                        <button class="read-more"
+                            onclick="expandImage('✦ 三張牌｜聖三角牌陣：', '我以為的狀態➊ 》真實的狀態➋ 》建言➌ ==> 建議問法：針對目前卡關的狀態，請讓我看到事件的真相', './my_image/2聖三角.png')">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- 四張牌陣 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="image-container">
+                    <img src="./my_image/3四張牌.png" />
+                    <div class="description">
+                        <div class="title">✦ 四張牌｜直指核心：</div>
+                        <div class="content text-truncate">
+                            問題核心➊ 》障礙➋ 》對策➌ 》優勢➍
+                        </div>
+                        <br /><br />
+                        <button class="read-more"
+                            onclick="expandImage('✦ 四張牌｜直指核心：', '問題核心➊ 》障礙➋ 》對策➌ 》優勢➍ ==> 建議問法：OO一直都沒有起色/一直卡關，到底是發生什麼事？而我能做些什麼？', './my_image/3四張牌.png')">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- 五張牌-1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="image-container">
+                    <img src="./my_image/4五張牌-1.png" />
+                    <div class="description">
+                        <div class="title">✦ 五張牌｜二選一＆可能的結果：</div>
+                        <div class="content text-truncate">
+                            選項A的狀態➊ 》選項B的狀態➋ 》選項A可能的結果➌
+                            》選項B可能的結果➍ 》當事人的狀態➎
+                        </div>
+                        <br /><br />
+                        <button class="read-more"
+                            onclick="expandImage('✦ 五張牌｜二選一＆可能的結果：', '選項A的狀態➊ 》選項B的狀態➋ 》選項A可能的結果➌ 》選項B可能的結果➍ 》當事人的狀態➎  ==> 建議問法：目前有2個工作在挑選，請高我讓我知道這兩個工作的狀態＆可能的結果 ', './my_image/4五張牌-1.png')">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- 五張牌-2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="image-container">
+                    <img src="./my_image/5五張牌-2.png" />
+                    <div class="description">
+                        <div class="title">✦ 五張牌｜感情萬用牌陣：</div>
+                        <div class="content text-truncate">
+                            我的狀態➊ 》本人對我的感情態度➋ 》對方的狀態➌
+                            》對方對我的感情態度➍ 》可能的結果➎
+                        </div>
+                        <br /><br />
+                        <button class="read-more"
+                            onclick="expandImage('✦ 五張牌｜感情萬用牌陣：', '我的狀態➊ 》本人對我的感情態度➋ 》對方的狀態➌ 》對方對我的感情態度➍ 》可能的結果➎  ==> 建議問法：請問我與OOO的目前關係狀態＆可能的發展？ ', './my_image/5五張牌-2.png')">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="overlay" class="overlay" style="display: none" onclick="closeExpanded()"></div>
+        <div id="expanded" class="expanded" style="display: none">
+            <span class="close" onclick="closeExpanded()">&times;</span>
+            <img id="expanded-image" src="" alt="Expanded Image" />
+            <div class="title" id="expanded-title"></div>
+            <div class="content" id="expanded-content"></div>
+        </div>
+    </div><br><br><br>
     <!-- _________________________footer_______________________________________________ -->
     <div id="footer"></div>
     <script>
-      // 使用 fetch 動態加載 navbar.html
-      fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('footer').innerHTML = data;
-        });
+        // 使用 fetch 動態加載 navbar.html
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
     </script>
 </body>
 
