@@ -31,114 +31,31 @@
     </link>
     <title>認識塔羅TAROT</title>
 </head>
-<!-- 導覽列 -->
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container-fluid">
-        <!-- 品牌logo -->
-        <a class="navbar-brand bi bi-moon-stars fw-bold text-secondary" href="#" id="navbar-custom">&nbsp;認識塔羅TAROT</a>
-        <!-- 漢堡按鈕 -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="切換導航">
-            <i class="bi bi-stars text-secondary"></i>
-        </button>
-        <!-- 導航連結 -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./index.html">首頁</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./Draw _Cards.html">體驗抽牌</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./Card_meaning.html">塔羅牌義</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./card_array.html">牌陣使用方法</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./card_array.html">塔羅常見牌陣</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://forms.gle/etR1Wqvbp7EAAQ6P9">問題反饋</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./login.html">會員登入</a>
-                </li>
-                <li>
-                    <!-- 按鈕觸發背景下拉選單 -->
-                    <div class="py-2 ms-2">
-                        <button class="btn rounded-circle text-dark fw-bold" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown" aria-expanded="false" style="
-                  background: #000;
-                  border-color:#fff;
-                  width: 10px;
-                  height: 25px;
-                ">
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end btn-group" aria-labelledby="dropdownMenuButton">
-                            <button href="#" class="dropdown-item btn1"
-                                onclick="changeBackground('linear-gradient(to right, #f3e6ff, #d6f5ff)', '#fff')">
-                                <span class="color-circle color-option-1"></span>
-                            </button>
-                            <button href="#" class="dropdown-item btn1"
-                                onclick="changeBackground('linear-gradient(to right, #f2d6ff, #b3e0ff)', '#000')">
-                                <span class="color-circle color-option-2"></span>
-                            </button>
-                            <button href="#" class="dropdown-item btn1"
-                                onclick="changeBackground('linear-gradient(to right, #ffd6e5, #ffcc99)', '#444')">
-                                <span class="color-circle color-option-3"></span>
-                            </button>
-                            <button href="#" class="dropdown-item btn1"
-                                onclick="changeBackground('linear-gradient(to right, #e0f7fa, #b2ebf2)', '#333')">
-                                <span class="color-circle color-option-4"></span>
-                            </button>
-                            <button href="#" class="dropdown-item btn1" onclick="changeBackground('#000', '#fff')">
-                                <span class="color-circle color-option-5"></span>
-                            </button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav><br><br><br><br>
-
-
-<!-- _________________________footer_______________________________________________ -->
-<footer>
-    <div class="my_footer box" style="height:20em;">
-        <div class="row row-cols-3 " style="width: 50%;">
-            <div class="col-4 my_footer1">
-                <p class="footer-title">TAROTAP</p>
-                <p class="footer-title">線上塔羅學習</p>
-            </div>
-            <div class="col-4 my_footer2">
-                <p class="footer-title">網站地圖</p>
-                <a href="#">首頁</a>
-                <a href="./Draw _Cards.html">體驗抽牌</a>
-                <a href="./Card_meaning.html">塔羅牌意</a>
-                <a href="./card_array.html">排陣使用方法</a>
-                <a href="./card_array.html">塔羅常見牌陣</a>
-            </div>
-            <div class="col-4 my_footer3">
-                <p class="footer-title">聯絡我們</p>
-                <a href="mailto:tarotworld1210@gmail.com">tarotworld1210@gmail.com</a>
-                <div>
-                    <a href="https://www.facebook.com/?locale=zh_TW" style="display: inline-block;"><img
-                            src="./my_image/carousel/web_logo (1).png" style="width: 70px;height:65px;"></a>
-                    <a href="https://www.instagram.com/" style="display: inline-block;"><img
-                            src="./my_image/carousel/web_logo (2).png" style="width: 70px;height:65px;"></a>
-                    <a href="https://www.youtube.com/" style="display: inline-block;"><img
-                            src="./my_image/carousel/web_logo (3).png" style="width: 70px;height:65px;"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 
 <body>
+    <!--  導覽列 -->
+    <div id="navbar"></div>
+    <script>
+        // 使用 fetch 動態加載 navbar.html
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
+    <br><br><br>
 
+
+    <!-- _________________________footer_______________________________________________ -->
+    <div id="footer"></div>
+    <script>
+      // 使用 fetch 動態加載 navbar.html
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer').innerHTML = data;
+        });
+    </script>
 </body>
 
 </html>
