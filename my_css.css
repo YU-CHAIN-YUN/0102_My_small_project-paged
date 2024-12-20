@@ -349,6 +349,9 @@ footer {
     font-weight: bold;
     color: #d0aa4a;
     /* 黃色文字作為對比 */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .my_footer2 a,
@@ -357,6 +360,11 @@ footer {
     color: white;
     font-size: 1rem;
     transition: color 0.3s, transform 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    display: block;
+    text-decoration: none;
 }
 
 .my_footer2 a:hover,
@@ -366,12 +374,6 @@ footer {
     transform: scale(1.1);
     /* hover 時放大 */
     text-shadow: 0 0 5px #ffcc00;
-}
-
-.my_footer2 a,
-.my_footer3 a {
-    display: block;
-    text-decoration: none;
 }
 
 /* ______________________輪播圖_________________________________ */
