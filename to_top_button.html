@@ -4,16 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 引用動畫效果 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@v2.0.0/dist/loading.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@v2.0.0/dist/loading.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <title>問題回饋表單</title>
     <style>
         #backToTopBtn {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
+            background-color: #007bff00;
+            border: 2px solid rgba(255, 166, 0, 0);
+            border-radius:  100px 100px 50px 50px;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
@@ -21,16 +26,11 @@
             /* 初始時隱藏按鈕 */
         }
 
-        #backToTopBtn:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 
 <body>
-    
-    <button id="backToTopBtn" onclick="scrollToTop()">回到最上層</button>
-
+    <button id="backToTopBtn" class="ld ld-bounce" style="animation-duration:2.0s" onclick="scrollToTop()" ><img src="./my_image/totop.png" style="width: 50px;"></button>
 
     <script>
         // 當用戶滾動時顯示或隱藏按鈕
