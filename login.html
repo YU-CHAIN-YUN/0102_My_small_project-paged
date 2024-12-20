@@ -30,6 +30,127 @@
     <link rel="icon" href="./my_image/moon-stars-fill.svg">
     </link>
     <title>認識塔羅TAROT</title>
+
+    <style>
+        .container {
+            position: relative;
+            /* 確保內部的絕對定位圖片以這個元素為參考 */
+            max-width: 400px;
+            margin-top: 50px;
+        }
+
+        /* 登入 */
+        #login {
+            background-color: #c9dbed;
+            /* 淺藍色背景 */
+            padding: 20px;
+            border-radius: 60px;
+        }
+
+        /* 註冊 */
+        #register {
+            background-color: #c9dbed;
+            /* 淺藍色背景 */
+            padding: 20px;
+            border-radius: 60px;
+        }
+
+        .btn-pill {
+            border-radius: 15px;
+            /* 膠囊狀按鈕 */
+            width: 80px;
+            background-color: #9665eb;
+        }
+
+        .btn-pill:hover {
+            background-color: #8f2ba2;
+            /* 滑鼠移過時的效果 */
+            color: white;
+        }
+
+        .hand {
+            position: absolute;
+            /* 絕對定位圖片，根據父元素是relative的前提 */
+            bottom: 0;
+            /* 粘在容器的底部 */
+            right: 0;
+            /* 粘在容器的右側 */
+            z-index: 10;
+            /* 讓圖片壓在其他內容上 */
+            background-image: url(./my_image/handd.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 150px;
+            height: 150px;
+            transition: transform 0.2s ease;
+        }
+
+        /* 回應 */
+        #response {
+            position: absolute;
+            /* 絕對定位圖片，根據父元素是relative的前提 */
+            bottom: -5;
+            /* 粘在容器的底部 */
+            right: 0;
+            /* 粘在容器的右側 */
+            z-index: 10;
+            /* 讓圖片壓在其他內容上 */
+            border-radius: 10%;
+            padding: 10px;
+        }
+
+        .hand:hover {
+            position: absolute;
+            /* 絕對定位圖片，根據父元素是relative的前提 */
+            bottom: 0;
+            /* 粘在容器的底部 */
+            right: 0;
+            /* 粘在容器的右側 */
+            z-index: 10;
+            /* 讓圖片壓在其他內容上 */
+            background-image: url(./my_image/handdd.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 200px;
+            height: 200px;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-10px);
+            }
+
+            50% {
+                transform: translateX(10px);
+            }
+
+            75% {
+                transform: translateX(-10px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .shake {
+            animation: shake 0.5s;
+        }
+
+        #response {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 
@@ -45,6 +166,164 @@
             });
     </script><br><br><br><br>
 
+    <!-- 會員登入 -->
+    <div class="container">
+        <div id="login" class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center text2">會員登入</h2>
+                <form>
+                    <div class="form-group py-2 text2">
+                        <label for="username">電子郵件:</label>
+                        <input type="email" class="form-control" id="username" name="username" placeholder="請輸入您的電子郵件" required />
+                    </div>
+                    <div class="form-group py-2 text2">
+                        <label for="password">密碼:</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="請輸入您的密碼" required />
+                    </div>
+                    <div class="form-group py-2 text2">
+                        <input type="checkbox"> 記住我
+                    </div>
+                    <div class="my-3 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-pill " onclick="handleLogin(event)">
+                            登入
+                        </button>
+                    </div>
+                </form>
+                <div class="text-center mt-2">
+                    <a href="#register" class="link">註冊會員</a>
+                </div>
+            </div>
+        </div>
+        <!-- 註冊會員框 -->
+        <div id="register" class="card mt-4" style="display: none">
+            <div class="card-body">
+                <h2 class="card-title text-center">註冊會員</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="nickname">姓名(暱稱):</label>
+                        <input type="text" class="form-control" id="nickname" name="nickname" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_username">帳號:</label>
+                        <input type="text" class="form-control" id="reg_username" name="reg_username" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_password">密碼:</label>
+                        <input type="password" class="form-control" id="reg_password" name="reg_password" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">再次確認密碼:</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password"
+                            required />
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">生日:</label>
+                        <input type="date" class="form-control" id="birthday" name="birthday" required />
+                    </div>
+                    <button type="submit" class="btn btn-success btn-pill btn-block" onclick="handleRegister(event)">
+                        註冊
+                    </button>
+                </form>
+                <div class="text-center mt-2">
+                    <a href="#login" class="link">返回登入</a>
+                </div>
+            </div>
+        </div>
+        <!-- 手手圖 -->
+        <div>
+            <div>
+                <div class="hand" onclick="showResponse()"></div>
+                <br /><br />
+                <!-- 回應 -->
+                <div id="response" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document
+            .querySelector('.link[href="#register"]')
+            .addEventListener("click", function (event) {
+                event.preventDefault();
+                document.getElementById("login").style.display = "none";
+                document.getElementById("register").style.display = "block";
+            });
+
+        document
+            .querySelector('.link[href="#login"]')
+            .addEventListener("click", function (event) {
+                event.preventDefault();
+                document.getElementById("register").style.display = "none";
+                document.getElementById("login").style.display = "block";
+            });
+
+        function handleLogin(event) {
+            event.preventDefault(); // 防止表單提交刷新
+            const username = document.getElementById("username").value; // 帳號
+            const password = document.getElementById("password").value; // 密碼
+
+            if (!username || !password) {
+                alert("請輸入帳號與密碼!");
+            } else {
+                localStorage.setItem("nickname", username); // 儲存帳號作為暱稱
+                window.location.href = "./index.html"; // 跳回首頁
+            }
+        }
+
+        function handleRegister(event) {
+            event.preventDefault(); // 防止表單提交刷新
+            const nickname = document.getElementById("nickname").value; // 暱稱
+            const regUsername = document.getElementById("reg_username").value; // 帳號
+            const regPassword = document.getElementById("reg_password").value; // 密碼
+            const confirmPassword =
+                document.getElementById("confirm_password").value; // 確認密碼
+
+            if (!nickname || !regUsername || !regPassword || !confirmPassword) {
+                alert("所有欄位皆為必填!");
+            } else if (regPassword !== confirmPassword) {
+                alert("密碼與確認密碼不一致!");
+            } else {
+                localStorage.setItem("nickname", nickname); // 儲存暱稱
+                window.location.href = "./index.html"; // 跳回首頁
+            }
+        }
+
+        // 手手的效果
+        function showResponse() {
+            // 震動效果
+            const hand = document.querySelector(".hand");
+            hand.classList.add("shake");
+
+            // 清除震動效果動畫
+            setTimeout(() => {
+                hand.classList.remove("shake");
+            }, 500);
+
+            // 隨機顯示語言回應
+            const responses = [
+                "Hello!", // English
+                "你好！", // Chinese
+                "不要再碰囉",
+                "Bonjour!", // French
+                "Hallo!", // German
+                "COW!牛的一種",
+            ];
+
+            const randomResponse =
+                responses[Math.floor(Math.random() * responses.length)];
+
+            // 顯示回應並將文字顏色設為白色
+            const responseElement = document.getElementById("response");
+            responseElement.textContent = randomResponse;
+            responseElement.style.color = "white"; // 設置文字顏色為白色
+            responseElement.style.backgroundColor = "red";
+        }
+    </script>
 
     <!-- _________________________footer_______________________________________________ -->
     <div id="footer"></div>
