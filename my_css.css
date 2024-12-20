@@ -294,10 +294,9 @@ body {
 .image-carousel-container {
     overflow: hidden;
     position: relative;
-    left: 10%;
-    width: 80%;
     height: auto;
-    /* background-color: #b2ebf2; */
+    width: 1000px;
+    margin: 0 auto;
 }
 
 .image-carousel {
@@ -382,7 +381,7 @@ footer {
     padding: 0;
 }
 
-section {
+/* section {
     overflow: hidden;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -392,9 +391,8 @@ section {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     height: 500px;
-    /* for touch screen */
     touch-action: none;
-}
+} */
 
 #drag-container,
 #spin-container {
@@ -576,3 +574,5 @@ p {
     position: relative;
     color: #6b7b7e;
 }
+
+/* ______________________問題反饋_____________________________________ */

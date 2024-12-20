@@ -1,34 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>圖片粘在右下角</title>
+  <title>問題回饋表單</title>
   <style>
-    .container {
-      position: relative; /* 確保內部的絕對定位圖片以這個元素為參考 */
-      width: 300px;
-      height: 200px;
-      background-color: lightblue; /* 背景色用於示例 */
-      border: 1px solid #ccc;
-      overflow: hidden; /* 避免圖片溢出元素邊界 */
+    #backToTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      display: none;
+      /* 初始時隱藏按鈕 */
     }
 
-    .overlay-image {
-      position: absolute; /* 絕對定位圖片 */
-      bottom: 0; /* 粘在容器的底部 */
-      right: 0; /* 粘在容器的右側 */
-      width: 50px; /* 調整圖片的大小 */
-      height: 50px; /* 可根據需要調整 */
-      z-index: 10; /* 讓圖片壓在其他內容上 */
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 增加壓在上方的視覺效果 */
+    #backToTopBtn:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <p>這是一個容器，圖片將會粘在它的右下角。</p>
-    <img src="./my_image/0單張牌.jpg" alt="粘在右下角的圖片" class="overlay-image">
-  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <button id="backToTopBtn" onclick="scrollToTop()">回到最上層</button>
+
+
+  <script>
+    // 當用戶滾動時顯示或隱藏按鈕
+    window.onscroll = function () {
+      let btn = document.getElementById("backToTopBtn");
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";  // 顯示按鈕
+      } else {
+        btn.style.display = "none";  // 隱藏按鈕
+      }
+    };
+
+    // 滾動到頁面頂部的函數
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
+
 </html>
