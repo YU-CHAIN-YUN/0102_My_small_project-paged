@@ -1,8 +1,24 @@
 /* ____________________全部字體樣式__________________________ */
+/* 標題字 */
+.text0 {
+    font-family: "微软雅黑", "Dosis", sans-serif;
+    color: palegoldenrod;
+    font-weight: bold;
+    font-size: 5rem;
+    /* 文字大小 */
+    background: linear-gradient(to right, #e608db, #feb47b);
+    /* 漸層顏色 */
+    -webkit-background-clip: text;
+    /* 僅將背景漸層裁剪到文字部分 */
+    -webkit-text-fill-color: transparent;
+    /* 使背景漸層可見，填充透明 */
+    text-align: center;
+    /* 文字居中對齊 */
+}
+
 /* 介紹塔羅、塔羅牌內容 */
 .text1 {
     font-family: "微软雅黑", "Dosis", sans-serif;
-
     text-align: left;
     position: relative;
 }
@@ -22,6 +38,21 @@
 .effect02 {
     color: #d2e4e4;
     text-shadow: 3px -3px 3px #0e0d0d;
+}
+
+.text3 {
+    font-family: "微软雅黑", "Dosis", sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    /* 文字大小 */
+    background: linear-gradient(to right, #e608db, #feb47b);
+    /* 漸層顏色 */
+    -webkit-background-clip: text;
+    /* 僅將背景漸層裁剪到文字部分 */
+    -webkit-text-fill-color: transparent;
+    /* 使背景漸層可見，填充透明 */
+    text-align: center;
+    /* 文字居中對齊 */
 }
 
 /* ___________________所有button按鈕效果_______________________________ */

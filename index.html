@@ -98,6 +98,178 @@
       /* 顯示文字 */
     }
 
+    /* ______________________圖片響應式設計____________________________ */
+
+    /* 手+封面圖片響應式設計 */
+    .responsive-img1 {
+      max-width: 100%;
+      height: auto;
+      flex-shrink: 0;
+      /* 防止圖片壓縮 */
+      margin: 0 15px;
+      /* 圖片間距 */
+    }
+
+    /* 左右手圖片設定 */
+    .left-img {
+      width: 15%;
+      /* 預設寬度 */
+    }
+
+    .center-img {
+      width: 20%;
+      /* 中間圖片稍大 */
+    }
+
+    .right-img {
+      width: 18%;
+      /* 預設寬度 */
+    }
+
+    /* 在手機上縮放圖片 */
+    @media (max-width: 576px) {
+
+      /* 標題字 */
+      .text0 {
+        font-size: 1.8rem;
+      }
+
+      /* 3種塔羅牌介紹+塔羅牌介紹 */
+      .text1 {
+        font-size: 1rem;
+      }
+
+      /* 3種塔羅牌介紹標題 */
+      .text2 {
+        font-size: 1.5rem;
+      }
+
+      .text3 {
+        font-size: 1.5rem;
+      }
+
+      .box {
+        flex-wrap: wrap;
+        /* 小螢幕時允許換行 */
+        gap: 15px;
+        /* 增加子元素間距 */
+      }
+
+      .responsive-img1 {
+        margin: 0 7px;
+        /* 縮小圖片間距 */
+      }
+
+      .left-img,
+      .center-img,
+      .right-img {
+        width: 28%;
+        /* 縮小所有圖片的寬度 */
+      }
+
+      .button1 {
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 10px;
+        /* 圓角 */
+      }
+
+      .img0 {
+        width: 200px;
+      }
+    }
+
+    /* ________________________________________________________ */
+
+    /* 平板裝置的調整 */
+    @media (min-width: 577px) and (max-width: 768px) {
+      .text0 {
+        font-size: 2.8rem;
+      }
+
+      /* 3種塔羅牌介紹+塔羅牌介紹 */
+      .text1 {
+        font-size: 1.0rem;
+      }
+
+      /* 3種塔羅牌介紹標題 */
+      .text2 {
+        font-size: 1.5rem;
+      }
+
+      .box {
+        flex-wrap: wrap;
+        /* 小螢幕時允許換行 */
+        gap: 15px;
+        /* 增加子元素間距 */
+      }
+
+      .responsive-img1 {
+        margin: 0 10px;
+      }
+
+      .left-img,
+      .center-img,
+      .right-img {
+        width: 18%;
+        /* 適當縮小圖片寬度 */
+      }
+
+      .button1 {
+        padding: 10px 20px;
+        font-size: 22px;
+        border-radius: 10px;
+        /* 圓角 */
+      }
+
+      .img0 {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    /* __________________________________________________________ */
+
+    /* 電腦裝置 */
+    @media (min-width: 769px) {
+      .text0 {
+        font-size: 4rem;
+      }
+
+      /* 3種塔羅牌介紹+塔羅牌介紹 */
+      .text1 {
+        font-size: 1.5rem;
+      }
+
+      /* 3種塔羅牌介紹標題 */
+      .text2 {
+        font-size: 2.0rem;
+      }
+
+      .responsive-img1 {
+        margin: 0 10px;
+      }
+
+      .left-img,
+      .center-img,
+      .right-img {
+        width: 18%;
+        /* 適當縮小圖片寬度 */
+      }
+
+      .button1 {
+        padding: 10px 20px;
+        font-size: 22px;
+        border-radius: 10px;
+        /* 圓角 */
+      }
+
+      .img0 {
+        width: 350px;
+        height: 350px;
+      }
+    }
+
     /* ______________________跑馬圖____________________________________ */
     .image-carousel-container {
       overflow: hidden;
@@ -130,7 +302,25 @@
     }
 
     /* ____________________塔羅牌文字、圖片框___________________________ */
-    /* 塔羅牌文字 */
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 10%;
+      width: auto;
+    }
+
+
+    .textbox0 {
+      padding: 30px 20px;
+      width: 60%;
+      background-color: rgba(58, 55, 55, 0.581);
+      border-radius: 30px 50px;
+      max-width: 1500px;
+    }
+
+    /* 塔羅牌文字外框 */
     .textbox1 {
       border-radius: 70px;
       padding: 25px;
@@ -141,6 +331,7 @@
       /* 垂直置中 */
       height: auto;
       /* 必須設定高度才能垂直居中 */
+      background-color: rgba(58, 55, 55, 0.581);
     }
 
     /* 圖片框設定 */
@@ -256,14 +447,18 @@
   </script><br><br><br><br>
   <!-- ________________________我是網頁部分_______________________________________ -->
   <section>
+    <!-- 標題 -->
+    <div>
+      <h1 class="text0">認識塔羅-線上塔羅館</h1>
+    </div><br><br>
     <!-- 塔羅圖片 -->
-    <div style="max-width:576px;height:auto;margin: 0 auto;">
-      <div class="d-flex justify-content-center align-items-center" style="width:auto; height:auto;padding:5%">
-        <img src="./my_image/hands.png" style="width: 150px; height: auto;padding-right:30px;"
-          class="animate__animated animate__fadeInLeft">
-        <img src="./my_image/picture1.jpg" style="width: 250px; height: auto;">
-        <img src="./my_image/handss.png" style="width: 180px; height: auto;padding-left:30px;"
-          class="animate__animated animate__fadeInRight">
+    <div>
+      <div class="d-flex justify-content-center align-items-center" style="padding:5%;">
+        <img src="./my_image/hands.png" alt="hands"
+          class="responsive-img1 left-img animate__animated animate__fadeInLeft" style="animation-duration:4.0s">
+        <img src="./my_image/picture1.jpg" alt="picture1" class="responsive-img1 center-img">
+        <img src="./my_image/handss.png" alt="handss"
+          class="responsive-img1 right-img animate__animated animate__fadeInRight" style="animation-duration:4.0s">
       </div><br><br>
     </div>
     <!-- 開始體驗按鈕(跳轉到抽牌) -->
@@ -272,10 +467,10 @@
     </div><br><br><br>
     <!-- 塔羅介紹 -->
     <div class="d-flex justify-content-center align-items-center">
-      <p class=" fs-5 text1 effect01 textbox0 animate__animated animate__fadeInRight"
-        style="padding: 30px ;width: 60%;background-color: rgba(58, 55, 55, 0.581);border-radius: 30px 110px;max-width: 1500px; margin: 0 auto;">
+      <p class="text1 effect01 textbox0 animate__animated animate__fadeInRight">
         塔羅牌起源於14至15世紀的歐洲，最初是一種紙牌遊戲，後來在18世紀被神秘學者賦予占卜與心理啟示的功能，成為靈性探索工具。
-        是一種具有神秘學與心理分析背景的占卜工具，由78張牌組成，分為22張大阿爾克那和56張小阿爾克那。大阿爾克那代表人生重要階段或事件，小阿爾克那分為四種花色（權杖、聖杯、寶劍、錢幣），象徵日常生活的各種面向。每張牌的圖像與象徵意義引導使用者反思內在情感、挑戰或未來可能的發展。塔羅牌常用於探索自我、做出決策或尋求心理支持。
+        是一種具有神秘學與心理分析背景的占卜工具，由78張牌組成，分為22張大阿爾克那和56張小阿爾克那。大阿爾克那代表人生重要階段或事件，小阿爾克那分為四種花色（權杖、聖杯、寶劍、錢幣），象徵日常生活的各種面向。
+        每張牌的圖像與象徵意義引導使用者反思內在情感、挑戰或未來可能的發展。塔羅牌常用於探索自我、做出決策或尋求心理支持。
       </p>
     </div><br><br><br>
     <!-- 跑馬圖 -->
@@ -320,61 +515,46 @@
     </script>
     <br><br><br><br>
     <!-- 塔羅圖框介紹 -->
-    <div class="container text-center px-5">
-      <div class="row">
-        <!-- 維特塔羅 -->
-        <div class="col-12 my-5">
-          <div class="row">
-            <div class="col-5 imgbox1 ">
-              <img src="./my_image/waittarot.png" alt="waittarot" class="animate__animated animate__fadeInLeft">
-            </div>
-            <div class="col-5 textbox1 animate__animated animate__fadeInRight"
-              style="background-color: rgba(58, 55, 55, 0.581);">
-              <h3 class="text2 effect02 px-3">萊德偉特塔羅牌</h3>
-              <div class="text1 effect01 fs-5 ">
-                由神秘學研究社群黃金黎明會成員亞瑟・愛德華・偉特設計，以及史密斯夫人繪製完成，1909 年由萊德出版商出版。
-                特色為賦予小阿卡納牌圖像，使解讀時可以更加具體，是世界上最廣為流傳並作為基礎延伸創作的塔羅牌。除了一直流傳下來的古老智慧外，也融入設計者或繪製者的觀點與人生經歷。
-                當然也有他們在神秘學領域的研究成果，稱為「活的塔羅牌」。一開始挑選偉特塔羅牌還是選經典或通用的偉特塔羅牌，牌面的訊息會更加完整。
-              </div>
-            </div>
-            <div class="col-2"></div>
+    <div class="container">
+      <h1 class="text3">塔羅種類</h1>
+      <!-- 維特塔羅 -->
+      <div class="box">
+        <div class="imgbox1" style="display: inline-block;">
+          <img src="./my_image/waittarot.png" alt="waittarot" class="animate__animated animate__fadeInLeft img0">
+        </div>
+        <div class="textbox1 animate__animated animate__fadeInRight">
+          <h3 class="text2 effect02 px-3">萊德偉特塔羅牌</h3>
+          <div class="text1 effect01">
+            特色為賦予小阿卡納牌圖像，使解讀時可以更加具體，是世界上最廣為流傳並作為基礎延伸創作的塔羅牌。除了一直流傳下來的古老智慧外，也融入設計者或繪製者的觀點與人生經歷。
+            也有他們在神秘學領域的研究成果，稱為「活的塔羅牌」。一開始挑選偉特塔羅牌還是選經典或通用的偉特塔羅牌，牌面的訊息會更加完整。
           </div>
         </div>
-        <!-- 馬賽塔羅 -->
-        <div class="col-12 my-5">
-          <div class="row">
-            <div class="col-2"></div>
-            <div class="col-5 textbox1" style="background-color: rgba(58, 55, 55, 0.581);">
-              <h3 class="text2 effect02 px-3">馬賽塔羅</h3>
-              <div class="text1 effect01 fs-5 ">
-                17 至 18
-                世紀流行以馬賽塔羅做為遊戲使用，是目前3大系統中最古老的塔羅牌，更是作為撲克牌的前身。標準的馬賽塔羅如同下圖，色調以紅黃藍三原色為基礎，牌面背景皆為白色。每一張數字牌不會依據牌意繪製故事，而是直接呈現元素數量，如權杖七就是有
-                7 個權杖在牌面上。
-                對初學者來說比較難以推敲牌意，不過若喜歡歐洲復古的風格，以及想要探究塔羅牌在遊戲的應用，在馬賽塔羅附贈的說名冊中就有更多可以研究的段落。
-              </div>
-            </div>
-            <div class="col-5 imgbox1">
-              <img src="./my_image/marseilletarot.png" alt="marseilletarot">
-            </div>
+      </div>
+      <!-- 馬賽塔羅 -->
+      <div class="box">
+        <div class="imgbox1">
+          <img src="./my_image/marseilletarot.png" alt="marseilletarot" class="img0">
+        </div>
+        <div class="textbox1">
+          <h3 class="text2 effect02 px-3">馬賽塔羅</h3>
+          <div class="text1 effect01">
+            17至18世紀流行以馬賽塔羅做為遊戲使用，是目前3大系統中最古老的塔羅牌，更是作為撲克牌的前身。標準的馬賽塔羅如同圖，色調以紅黃藍三原色為基礎，牌面背景皆為白色。每一張數字牌不會依據牌意繪製故事，而是直接呈現元素數量，如權杖七就是有
+            7 個權杖在牌面上。對初學者來說比較難以推敲牌意。
           </div>
         </div>
-        <!-- 托特塔羅 -->
-        <div class="col-12 my-5">
-          <div class="row">
-            <div class="col-5 imgbox1">
-              <img src="./my_image/thothtorat.png" alt="thothtorat">
-            </div>
-            <div class="col-5 textbox1" style="background-color: rgba(58, 55, 55, 0.581);">
-              <h3 class="text2 effect02 px-3">托特塔羅</h3>
-              <div class="text1 effect01 fs-5 ">
-                設計者為克勞力・托特，繪製者為哈利斯女士，但兩位都沒有見證到 1969 年托特塔羅出版發行，經過出版社多次調整後目前流通的最新修訂版為 1996 年的版本。
-                克勞力・托特原本與偉特一樣，是黃金黎明會的成員，但因為與其他成員有爭執而退出，並在之後自成一派。
-                他可說是個神秘學狂熱者，在神秘學領域中是相當有爭議性的人物，但也不可否認他在神秘學的鑽研與付出。
-                他對於占星、易經與卡巴拉生命之樹都有研究，並融入到托特塔羅的設計中。
-                過去托特塔羅在台灣發行時，曾以「直覺式塔羅」命名，但其實托特塔羅融入許多神秘學傳統，若對神秘學沒有太多研究，是無法單純以直覺解牌，也就更添加托特塔羅的神祕性。
-              </div>
-            </div>
-            <div class="col-2"></div>
+      </div>
+
+      <!-- 托特塔羅 -->
+      <div class="box">
+        <div class="imgbox1">
+          <img src="./my_image/thothtorat.png" alt="thothtorat" class="img0">
+        </div>
+        <div class="textbox1">
+          <h3 class="text2 effect02 px-3 width: 30%;">托特塔羅</h3>
+          <div class="text1 effect01">
+            設計者為克勞力・托特，繪製者為哈利斯女士。
+            克勞力・托特原本與偉特一樣，是黃金黎明會的成員，但因為與其他成員有爭執而退出，並在之後自成一派。
+            過去托特塔羅在台灣發行時，曾以「直覺式塔羅」命名，但其實托特塔羅融入許多神秘學傳統，若對神秘學沒有太多研究，是無法單純以直覺解牌，也就更添加托特塔羅的神祕性。
           </div>
         </div>
       </div>
