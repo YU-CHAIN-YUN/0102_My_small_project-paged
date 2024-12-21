@@ -5,6 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        /* _____________________navbar導覽列_______________________ */
+        /* 自定義導航欄樣式 */
+        .navbar-custom {
+            position: sticky;
+            /* 讓導航欄黏在頂部 */
+            top: 0;
+            z-index: 1030;
+            /* 確保導航欄位於最上層 */
+            background: linear-gradient(rgba(99, 96, 96, 0.443), rgba(255, 255, 255, 0.075));
+            /* 背景漸層透明 */
+            border-radius: 30px;
+            /* 圓角 */
+            backdrop-filter: blur(2px);
+            /* 背景模糊效果 */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            /* 陰影 */
+            margin-right: 10px;
+            margin-left: 10px;
+            /* 兩側距離 */
+        }
+
+        .navbar-custom .nav-link {
+            font-weight: bold;
+            /* 字體加粗 */
+            font-size: large;
+            color: #a9a4a4;
+            /* 預設文字顏色 */
+            transition: color 0.3s ease;
+            /* 平滑過渡效果 */
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #ffffff;
+            /* 滑鼠懸停時文字顏色 */
+        }
+
+        /* ______________________更換背景顏色按鈕_________________________ */
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            transition: background 0.5s ease;
+            background: #000000;
+            /* 預設背景為黑色 */
+        }
+
+        .color-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        /* 顏色預覽 */
+        .color-option-1 {
+            background: linear-gradient(to right, #f3e6ff, #d6f5ff);
+        }
+
+        .color-option-2 {
+            background: linear-gradient(to right, #f2d6ff, #b3e0ff);
+        }
+
+        .color-option-3 {
+            background: linear-gradient(to right, #ffd6e5, #ffcc99);
+        }
+
+        .color-option-4 {
+            background: linear-gradient(to right, #e0f7fa, #b2ebf2);
+        }
+
+        .color-option-5 {
+            background: #000;
+            /* 黑色選項 */
+        }
+
+        /* 按鈕樣式 */
+        .dropdown-toggle {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #fff;
+            /* 明顯邊框 */
+            transition: background 0.5s ease, border-color 0.5s ease;
+            /* 平滑過渡 */
+            border-radius: 50%;
+        }
+
+
+        /* 下拉選單容器樣式 */
+        .btn-group {
+            display: none;
+            /* 初始隱藏 */
+            background-color: rgba(136, 131, 131, 0.183);
+            width: 10px;
+        }
+
+        .btn1:hover {
+            background-color: #0000002f;
+        }
+    </style>
 </head>
 
 <body>

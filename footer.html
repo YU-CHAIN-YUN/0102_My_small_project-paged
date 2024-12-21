@@ -5,13 +5,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        footer {
+            background: rgba(117, 34, 34, 0.74);
+            /* 半透明背景 */
+            border-radius: 40px 40px 0 0;
+            /* 上兩角圓弧 */
+            padding-top: 7rem;
+            position: relative;
+        }
+
+        .my_footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .col-4 {
+            flex: 1 1 33%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d0aa4a;
+        }
+
+        .my_footer2 a,
+        .my_footer3 a {
+            margin: 0.5em 0;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s, transform 0.3s;
+            display: flex;
+            justify-content: space-between;
+            /* align-items: flex-end; */
+            display: block;
+            text-decoration: none;
+        }
+
+        .my_footer2 a:hover,
+        .my_footer3 a:hover {
+            color: #ffcc00;
+            /* hover 時改為黃色 */
+            transform: scale(1.1);
+            /* hover 時放大 */
+            text-shadow: 0 0 5px #ffcc00;
+        }
+
+        .img_link {
+            width: 50px;
+            height: 50px;
+            margin: 0 5px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .col-4 {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+
+            .my_footer {
+                padding: 10px;
+            }
+
+            .img_link {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-title {
+                font-size: 1.2em;
+            }
+
+            .img_link {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- _________________________footer_______________________________________________ -->
     <footer>
-        <div class="my_footer box" style="height:20em;">
-            <div class="row row-cols-3 " style="width: 50%;">
+        <div class="my_footer box">
+            <div class="row">
                 <div class="col-4 my_footer1">
                     <p class="footer-title">TAROTAP</p>
                     <p class="footer-title">線上塔羅學習</p>
@@ -28,12 +122,9 @@
                     <p class="footer-title">聯絡我們</p>
                     <a href="mailto:tarotworld1210@gmail.com">tarotworld1210@gmail.com</a>
                     <div>
-                        <a href="https://www.facebook.com/?locale=zh_TW" style="display: inline-block;"><img
-                                src="./my_image/carousel/web_logo (1).png" style="width: 70px;height:65px;"></a>
-                        <a href="https://www.instagram.com/" style="display: inline-block;"><img
-                                src="./my_image/carousel/web_logo (2).png" style="width: 70px;height:65px;"></a>
-                        <a href="https://www.youtube.com/" style="display: inline-block;"><img
-                                src="./my_image/carousel/web_logo (3).png" style="width: 70px;height:65px;"></a>
+                        <a href="https://www.facebook.com/?locale=zh_TW" style="display: inline-block;"><img src="./my_image/carousel/web_logo (1).png" class="img_link"></a>
+                        <a href="https://www.instagram.com/" style="display: inline-block;"><img src="./my_image/carousel/web_logo (2).png " class="img_link"></a>
+                        <a href="https://www.youtube.com/" style="display: inline-block;"><img src="./my_image/carousel/web_logo (3).png" class="img_link"></a>
                     </div>
                 </div>
             </div>
