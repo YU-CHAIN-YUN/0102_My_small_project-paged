@@ -99,7 +99,7 @@
     <!-- 回饋單 -->
     <div class="container">
         <h1>問題回饋表單</h1>
-        <form action="/submit" method="POST" enctype="multipart/form-data">
+        <form >
             <!-- 姓名 -->
             <label for="name">姓名 (選填)</label>
             <input type="text" id="name" name="name" placeholder="請輸入您的姓名">
@@ -134,7 +134,14 @@
             </select>
 
             <!-- 提交按鈕 -->
-            <button class="btn button1" type="submit">提交</button>
+            <button class="btn button1"  onclick="finished()">提交</button>
+            <script>
+
+                function finished(){
+                    alert("您已提交表單，感謝您的回饋!");
+                }
+            </script>
+
         </form>
     </div>
     <!-- ________________________向上鍵按鈕____________________________________________ -->
