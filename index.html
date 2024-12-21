@@ -147,6 +147,18 @@
         <img src="./my_image/carousel/10.jpg">
       </div>
     </div>
+
+    <script>
+      // ____________________________跑馬圖____________________________________________
+      // 動態計算動畫時間，根據圖片總寬度調整
+      const carousel = document.querySelector('.image-carousel');
+      const container = document.querySelector('.image-carousel-container');
+
+      const totalWidth = carousel.scrollWidth / 1; // 單次圖片組寬度
+      const duration = totalWidth / 80; // 調整滾動速度（100px/sec）
+
+      carousel.style.animationDuration = `${duration}s`;
+    </script>
     <br><br><br><br>
     <!-- 塔羅圖框介紹 -->
     <div class="container text-center px-5">
@@ -209,6 +221,9 @@
       </div>
     </div>
   </section>
+  <!-- ________________________向上鍵按鈕____________________________________________ -->
+  <button id="backToTopBtn" class="ld ld-bounce" style="animation-duration:2.0s" onclick="scrollToTop()"><img
+      src="./my_image/totop.png" style="width: 50px;"></button>
   <!-- _________________________footer_______________________________________________ -->
   <div id="footer"></div>
   <script>

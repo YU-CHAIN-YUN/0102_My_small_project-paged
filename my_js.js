@@ -37,15 +37,6 @@ document.addEventListener("scroll", function () {
     });
 });
 
-// ____________________________跑馬圖____________________________________________
-// 動態計算動畫時間，根據圖片總寬度調整
-const carousel = document.querySelector('.image-carousel');
-const container = document.querySelector('.image-carousel-container');
-
-const totalWidth = carousel.scrollWidth / 1; // 單次圖片組寬度
-const duration = totalWidth / 80; // 調整滾動速度（100px/sec）
-
-carousel.style.animationDuration = `${duration}s`;
 // ____________________________________________________________________________
 // 塔羅牌陣解釋框
 function expandImage(title, content, imageUrl) {
@@ -59,4 +50,20 @@ function expandImage(title, content, imageUrl) {
 function closeExpanded() {
     document.getElementById("overlay").style.display = "none";
     document.getElementById("expanded").style.display = "none";
+}
+
+// ____________________________向上按鈕_________________________________________
+// 當用戶滾動時顯示或隱藏按鈕
+window.onscroll = function () {
+    let btn = document.getElementById("backToTopBtn");
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";  // 顯示按鈕
+    } else {
+        btn.style.display = "none";  // 隱藏按鈕
+    }
+};
+
+// 滾動到頁面頂部的函數
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }

@@ -575,4 +575,21 @@ p {
     color: #6b7b7e;
 }
 
+/* _______________________向上鍵按鈕__________________________________ */
+#backToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff00;
+    border: 2px solid rgba(255, 166, 0, 0);
+    border-radius: 100px 100px 50px 50px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: none;
+    /* 初始時隱藏按鈕 */
+    z-index: 9999;
+    /* 放在最上層 */
+}
+
 /* ______________________問題反饋_____________________________________ */
