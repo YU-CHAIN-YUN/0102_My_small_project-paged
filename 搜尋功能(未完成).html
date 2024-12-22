@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜尋功能</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* 容器樣式 */
+        .search-container {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 搜尋按鈕的圓形樣式 */
+        .search-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: white;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        /* 展開後的搜尋框 */
+        .search-input {
+            width: 0;
+            height: 40px;
+            border-radius: 20px;
+            padding: 0 10px;
+            outline: none;
+            border: 2px solid #3498db;
+            transition: all 0.4s ease;
+            /* 平滑過渡 */
+            font-size: 16px;
+            opacity: 0;
+            visibility: hidden;
+            background-color: #fff;
+        }
+
+        .search-input.active {
+            width: 200px;
+            /* 展開後的寬度 */
+            opacity: 1;
+            visibility: visible;
+            border-radius: 20px;
+        }
+
+        /* 搜尋結果區域 */
+        .results {
+            margin-top: 20px;
+            text-align: left;
+            display: none;
+        }
+
+        .result-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="search-container">
+        <button id="search-button" class="search-button"><i class="bi bi-search"></i></button>
+        <input type="text" id="search-input" class="search-input" placeholder="搜尋...">
+    </div>
+
+    <script src="./my_js.js"></script>
+</body>
+
+</html>

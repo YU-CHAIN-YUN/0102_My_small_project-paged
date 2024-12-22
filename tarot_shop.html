@@ -1,11 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- ____________________________________________________________________________________________ -->
+
+    <!-- 引用連結整理 -->
+
+    <!-- 改變標題圖示連結 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./my_css.css">
+    <!-- 引用動畫效果 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@v2.0.0/dist/loading.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@v2.0.0/dist/loading.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- 引用bootstraps -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- 引用自己的js -->
+    <script src="./my_js.js" defer></script> <!-- 將 <script> 放在 <head> 中，defer：腳本會在 HTML 完全解析完後執行，執行順序按照出現順序。 -->
+    <!-- 引用自己的css -->
+    <link rel="stylesheet" href="./my_css.css">
+
+    <!-- ____________________________________________________________________________________________ -->
+
+    <!--  Bootstrap Icons 是基於字體的圖標庫，因此無法直接設置為 favicon 圖示（因為 favicon 需要圖片文件）  -->
+    <link rel="icon" href="./my_image/moon-stars-fill.svg">
+    </link>
+    <title>認識塔羅TAROT</title>
+
+    <style>
+        .video_screen {
+            width: fit-content;
+        }
+
+        iframe {
+            border-radius: 20px;
+        }
+
+        #container1 {
+            background-color: rgba(88, 90, 93, 0.453);
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        .text5 {
+                font-size: 1.4rem;
+            }
+
+            .text4 {
+                font-size: 1.0rem;
+            }
+
+        @media (max-width: 576px) {
+
+            /* 標題字 */
+            .text3 {
+                font-size: 1.8rem;
+            }
+
+            .text5 {
+                font-size: 1.0rem;
+            }
+
+            .text4 {
+                font-size: 0.8rem;
+            }
+
+            iframe {
+                width: auto;
+                height: auto;
+            }
+
+            .video_screen {
+                width: fit-content;
+            }
+
+            #container1 {
+            padding: 20px;
+            margin: 0 20px;
+            width: auto;
+        }
+        }
+
+        @media (min-width: 577px) and (max-width: 768px) {
+
+            /* 標題字 */
+            .text3 {
+                font-size: 2.5rem;
+            }
+
+            .text5 {
+                font-size: 1.4rem;
+            }
+
+            .text4 {
+                font-size: 1.0rem;
+            }
+
+        }
+    </style>
 </head>
+
 <body>
-    
+    <!-- 導覽列 -->
+    <div id="navbar"></div>
+    <script>
+        // 使用 fetch 動態加載 navbar.html
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script><br><br><br><br>
+    <h1 class="text3">初學者學習如何使用塔羅牌</h1><br>
+
+    <!-- 學習塔羅影片 -->
+    <div class="container d-flex justify-content-center video_screen" style="">
+        <iframe width="582" height="313" src="https://www.youtube.com/embed/8QIaklug2as"
+            title="從0開始學塔羅，塔羅牌教學、正確學習觀念(初學者必看)" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <hr style="border: 2px dotted seashell;margin: 30px 20px;">
+    <!-- 初學者學習如何使用塔羅牌 -->
+    <div class="container" id="container1">
+        <div style="border: 2px dashed rgb(228, 228, 137); border-radius: 20px; padding: 20px;">
+            <h1 class="text5">1、挑選一副塔羅牌：</h1>
+            <ul class="text4" style="list-style-type: disc;">
+                <li> 在選擇塔羅牌時，要找到一副你感到舒適且能產生共鳴的牌組。觀察不同的牌組，包括圖案、顏色和意象，選擇一副讓你感到吸引和連結的牌。初學者可以從偉特系列的牌入手，因為解牌書較多。但如果你是直覺解牌的人，畫風吸引你會遠比牌本身是什麼系統還重要。畢竟塔羅牌算是一種圖象占卜。
+                </li>
+            </ul>
+            <h1 class="text5">2、淨化塔羅、開牌:</h1>
+            <ul class="text4" style="list-style-type: disc;">
+                <li>若你拿的是二手牌，可以先行淨化去除上一位使用者的能量再開始使用。第一次使用前可以先了解牌面，並看看一位塔羅朋友是「性格」如何。</li>
+            </ul>
+            <h1 class="text5">3、設定問題：</h1>
+            <ul class="text4" style="list-style-type: disc;">
+                <li>在開始占卜之前，確定你要問的問題。問題應該是明確和具體的，不過分泛泛或含糊。可以問開放式問題，讓塔羅牌提供指導或洞察。明確設定問題有助於釐清自己想要的東西。若是為他人占卜，占卜師需要充份與問卜者構通，理解他真正的疑問點，這有助等一下牌更容易解讀，也幫問卜者梳理情緒或思緒。
+                </li>
+            </ul>
+            <h1 class="text5">4、選擇適合的牌陣： </h1>
+            <ul class="text4" style="list-style-type: disc;">
+                <li>根據你的問題選擇牌陣。例如，「過去-現在-未來」適合探索時間性問題，而十字牌陣則涵蓋了更多方面的信息。牌陣是一種藝術，不同的問題適合的牌陣，新的牌陣不斷地被發明因此永遠學不完，初學者至少要學習幾種經典牌陣，包括:時間流、選擇題，人際關係等牌陣，以對應各種問題。
+                </li>
+            </ul>
+            <h1 class="text5">5、洗牌：</h1>
+            <ul class="text4" style="list-style-type: disc;">
+                <li>將牌面打亂以消除先前的順序。可以使用多種方法洗牌，例如交替洗牌、切牌或翻轉牌堆。一般會請問卜者一邊想著問題一邊順時鐘洗牌，牌洗得愈乾淨愈好，因為部份牌陣會數數字抽第七張或其他牌，若沒洗乾淨會影響準確度。再者，洗牌的過程也有助問卜者沉澱心情。
+                </li>
+            </ul>
+            <h1 class="text5">6、切牌：</h1>
+            <ul class="text4" style="list-style-type: disc;">
+                <li>將牌堆分成三堆，然後將一堆放在另一堆上面，依順序收回來。這個步驟有助於增加牌組的能量和混亂度。</li>
+            </ul>
+            <h1 class="text5">7、收牌：</h1>
+            <ul class="text4" style="list-style-type: disc;">
+                <li>當你感到牌已經充分洗牌並準備好時，收回牌堆並將它們整理好，準備進行牌陣布展。通常我們會把牌收成橫的，再依據，為他人占卜向右轉正。為自己占卜向左轉正的方式，來決定正逆位。</li>
+            </ul>
+            <h1 class="text5">8、彩虹列展開 OR 數牌：</h1>
+            <ul class="text4" style="list-style-type: disc;">
+                <li>根據選擇的牌陣，以指定的方式將牌放置或排列。不同的牌陣有不同的佈展方式，請按照牌陣的要求進行。彩虹列展開可看出占卜師的技巧是否熟練的同時，也跟占卜桌布與牌本身的好推程度有關。</li>
+            </ul>
+            <h1 class="text5">9、解讀：</h1>
+            <ul class="text4" style="list-style-type: disc;">
+                <li>逐張解讀每張牌的象徵意義，然後將它們結合起來，進行整體的牌陣解讀。這可能涉及牌的位置、相互關係以及整體故事的形成。使用直覺、牌面的象徵意義以及牌面之間的連結來進行解讀。</li>
+            </ul>
+        </div>
+    </div><br><br>
+
+
+
+    <!-- ________________________向上鍵按鈕____________________________________________ -->
+    <button id="backToTopBtn" class="ld ld-bounce" style="animation-duration:2.0s" onclick="scrollToTop()"><img
+            src="./my_image/totop.png" style="width: 50px;"></button>
+    <!-- _________________________footer_______________________________________________ -->
+    <div id="footer"></div>
+    <script>
+        // 使用 fetch 動態加載 navbar.html
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
 </body>
+
 </html>

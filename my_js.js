@@ -67,3 +67,39 @@ window.onscroll = function () {
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+// ______________________________搜尋功能____________________________________
+// script.js
+document.getElementById("search-button").addEventListener("click", function () {
+    const inputElement = document.getElementById("search-input");
+
+    // 切換輸入框的顯示狀態
+    inputElement.classList.toggle("active");
+    inputElement.focus();  // 當展開後自動聚焦
+});
+
+document.getElementById("search-input").addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    const resultsContainer = document.getElementById("search-results");
+
+    // 假設的搜尋資料集
+    const data = [
+        "如何學習 JavaScript",
+        "Web 開發基礎",
+        "前端框架介紹",
+        "學習 HTML 和 CSS",
+        "React 和 Vue 比較"
+    ];
+
+    // 篩選出符合搜尋條件的結果
+    const filteredResults = data.filter(item => item.toLowerCase().includes(query));
+
+    // 顯示搜尋結果
+    if (filteredResults.length > 0) {
+        resultsContainer.innerHTML = filteredResults.map(item => `<div class="result-item">${item}</div>`).join('');
+        resultsContainer.style.display = 'block';
+    } else {
+        resultsContainer.innerHTML = '<div>沒有找到相關結果</div>';
+        resultsContainer.style.display = 'block';
+    }
+});
+
