@@ -44,7 +44,6 @@
             opacity: 0;
             transform: translateY(-100px) scale(0.5);
             /* 起始位置在上方，縮小 */
-            /* 起始位置在上方，縮小 */
             animation: drawAnimation 1s ease-out forwards;
         }
 
@@ -85,6 +84,8 @@
 
         /* 列排版 */
         #result0 {
+            width: 100%;
+            /* 確保容器寬度為響應式 */
             display: none;
             background-color: rgba(85, 88, 91, 0.422);
             padding: 20px;
@@ -105,6 +106,11 @@
             /* 居中排列 */
             gap: 10px;
             /* 每張牌之間的間距 */
+            width: 100%;
+            max-width: 1200px;
+            /* 限制最大寬度 */
+            margin: auto;
+            /* 居中對齊 */
         }
 
         @media (max-width: 576px) {
@@ -116,12 +122,25 @@
 
             /* 標題字 */
             .text3 {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
 
             .text4 {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
+
+            .text5 {
+                font-size: 1.1rem
+            }
+
+            .text6 {
+                font-size: 0.8rem
+            }
+
+            .caption {
+                font-size: 0.7rem;
+            }
+
         }
 
         @media (min-width: 577px) and (max-width: 768px) {
@@ -136,6 +155,7 @@
             .text4 {
                 font-size: 1.2rem;
             }
+
         }
 
         /* ______________________輪播圖_________________________________ */
@@ -277,7 +297,7 @@
     <div class="container" style="width: 100%">
         <section class="m-5" style="height: 100%">
             <div style="width: 100%">
-                <h1 contenteditable="true" class="text0 " style="height:10%;text-align: center;">
+                <h1 contenteditable="true" class="text0" style="height:10%;text-align: center;">
                     線上塔羅學習
                     <p contenteditable="true" class="text3" style="text-align: center;">
                         解讀命運之語，指導心靈之路。
@@ -464,7 +484,7 @@
                     <div class="form-group">
                         <label for="numImages" class="button2 text4 py-3 px-2">點我輸入抽取的塔羅牌數量(最多 5 張)：</label><br><br>
                         <div class="d-flex justify-content-center">
-                            <input type="number" class="form-control" id="numImages" min="1" max="5" value="1">
+                            <input type="number" id="numImages" min="1" max="5" value="1">
                         </div>
                     </div>
 
