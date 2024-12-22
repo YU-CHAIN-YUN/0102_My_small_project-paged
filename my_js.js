@@ -69,37 +69,46 @@ function scrollToTop() {
 }
 // ______________________________搜尋功能____________________________________
 // script.js
+
+// 1. 點擊按鈕展開搜尋框
 document.getElementById("search-button").addEventListener("click", function () {
     const inputElement = document.getElementById("search-input");
-
-    // 切換輸入框的顯示狀態
-    inputElement.classList.toggle("active");
-    inputElement.focus();  // 當展開後自動聚焦
+    inputElement.classList.toggle("active"); // 切換搜尋框展開/收回狀態
+    inputElement.focus(); // 自動聚焦到搜尋框
 });
 
-document.getElementById("search-input").addEventListener("input", function () {
-    const query = this.value.toLowerCase();
-    const resultsContainer = document.getElementById("search-results");
+// 2. 搜尋文字並滾動到該位置
+document.getElementById("search-input").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        const query = this.value.trim(); // 獲取搜尋文字
+        if (!query) return;
 
-    // 假設的搜尋資料集
-    const data = [
-        "如何學習 JavaScript",
-        "Web 開發基礎",
-        "前端框架介紹",
-        "學習 HTML 和 CSS",
-        "React 和 Vue 比較"
-    ];
+        // 移除之前的高亮
+        const elements = document.querySelectorAll("p"); // 包括 section 和 p
+        elements.forEach((el) => {
+            el.innerHTML = el.textContent; // 恢復原始文字
+        });
 
-    // 篩選出符合搜尋條件的結果
-    const filteredResults = data.filter(item => item.toLowerCase().includes(query));
+        // 搜尋文字
+        let found = false;
+        elements.forEach((el) => {
+            const text = el.textContent.replace(/\s+/g, ' ').trim(); // 去除多餘空白
+            if (text.toLowerCase().includes(query.toLowerCase())) {
+                // 高亮文字
+                const regex = new RegExp(`(${query})`, "gi");
+                el.innerHTML = text.replace(regex, '<span class="highlight">$1</span>');
 
-    // 顯示搜尋結果
-    if (filteredResults.length > 0) {
-        resultsContainer.innerHTML = filteredResults.map(item => `<div class="result-item">${item}</div>`).join('');
-        resultsContainer.style.display = 'block';
-    } else {
-        resultsContainer.innerHTML = '<div>沒有找到相關結果</div>';
-        resultsContainer.style.display = 'block';
+                // 滾動到該段落
+                el.scrollIntoView({ behavior: "smooth", block: "center" });
+                found = true;
+            }
+        });
+
+        if (!found) {
+            alert("找不到相關內容");
+        }
     }
 });
+
+
 

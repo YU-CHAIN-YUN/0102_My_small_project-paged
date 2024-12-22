@@ -4,87 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>搜尋功能</title>
+    <title>滾動到搜尋結果</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            line-height: 1.6;
         }
 
-        /* 容器樣式 */
+        section {
+            margin: 50px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        .highlight {
+            background-color: rgb(247, 230, 136);
+            /* 高亮顯示搜尋到的內容 */
+            padding: 2px 4px;
+        }
+
         .search-container {
             position: fixed;
-            bottom: 50px;
-            right: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            top: 10px;
+            left: 10px;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* 搜尋按鈕的圓形樣式 */
+        .search-input {
+            padding: 5px;
+            font-size: 14px;
+            width: 200px;
+        }
+
         .search-button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
             background-color: #3498db;
             color: white;
-            font-size: 30px;
             border: none;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        /* 展開後的搜尋框 */
-        .search-input {
-            width: 0;
-            height: 40px;
-            border-radius: 20px;
-            padding: 0 10px;
-            outline: none;
-            border: 2px solid #3498db;
-            transition: all 0.4s ease;
-            /* 平滑過渡 */
-            font-size: 16px;
-            opacity: 0;
-            visibility: hidden;
-            background-color: #fff;
-        }
-
-        .search-input.active {
-            width: 200px;
-            /* 展開後的寬度 */
-            opacity: 1;
-            visibility: visible;
-            border-radius: 20px;
-        }
-
-        /* 搜尋結果區域 */
-        .results {
-            margin-top: 20px;
-            text-align: left;
-            display: none;
-        }
-
-        .result-item {
-            padding: 8px 0;
-            border-bottom: 1px solid #ddd;
+            margin-left: 5px;
         }
     </style>
 </head>
 
 <body>
-
     <div class="search-container">
-        <button id="search-button" class="search-button"><i class="bi bi-search"></i></button>
-        <input type="text" id="search-input" class="search-input" placeholder="搜尋...">
+        <input type="text" id="search-input" class="search-input" placeholder="輸入搜尋內容...">
+        <button id="search-button" class="search-button">搜尋</button>
     </div>
 
-    <script src="./my_js.js"></script>
+    <!-- 模擬內容 -->
+    <section id="section1">這裡是段落一的內容，包含許多描述性文字。</section>
+    <section id="section2">這裡是段落二的內容，這段文字中提到了「JavaScript」。</section>
+    <section id="section3">這是段落三，這裡提到了「搜尋功能」的應用。</section>
+    <section id="section4">最後是段落四，內容與滾動行為和 DOM 操作有關。</section>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

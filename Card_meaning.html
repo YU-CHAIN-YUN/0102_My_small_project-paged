@@ -97,6 +97,76 @@
       position: relative;
       color: #6b7b7e;
     }
+
+    /* ___________________搜尋________________ */
+    .highlight {
+      background-color: rgb(228, 228, 138);
+      /* 高亮顯示搜尋到的內容 */
+      padding: 2px 4px;
+      }
+
+      /* 容器樣式 */
+      .search-container {
+        position: fixed;
+        top: 80px;
+        left: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* 搜尋按鈕的圓形樣式 */
+      .search-button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #686e7281;
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      /* 展開後的搜尋框 */
+      .search-input {
+        width: 0;
+        height: 30px;
+        border-radius: 20px;
+        padding: 0 10px;
+        margin: 0 10px;
+        outline: none;
+        border: 2px solid #aeb6ba;
+        transition: all 0.4s ease;
+        /* 平滑過渡 */
+        font-size: 16px;
+        opacity: 0;
+        visibility: hidden;
+        background-color: #aeb6ba;
+      }
+
+      .search-input.active {
+        width: 200px;
+        /* 展開後的寬度 */
+        opacity: 1;
+        visibility: visible;
+        border-radius: 20px;
+      }
+
+      /* 搜尋結果區域 */
+      .results {
+        margin-top: 20px;
+        text-align: left;
+        display: none;
+      }
+
+      .result-item {
+        padding: 8px 0;
+        border-bottom: 1px solid #ddd;
+      }
   </style>
 </head>
 <!-- 導覽列 -->
@@ -1068,6 +1138,11 @@
 <!-- ________________________向上鍵按鈕____________________________________________ -->
 <button id="backToTopBtn" class="ld ld-bounce" style="animation-duration:2.0s" onclick="scrollToTop()"><img
     src="./my_image/totop.png" style="width: 50px;"></button>
+<!-- _________________________搜尋按鈕________________________________________ -->
+<div class="search-container">
+  <button id="search-button" class="search-button"><i class="bi bi-search" style="color: white;"></i></button>
+  <input type="text" id="search-input" class="search-input" placeholder="請輸入搜尋內容...">
+</div>
 <!-- _________________________footer_______________________________________________ -->
 <div id="footer"></div>
 <script>
