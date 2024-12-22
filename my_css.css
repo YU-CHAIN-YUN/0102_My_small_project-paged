@@ -61,6 +61,26 @@
     font-size: 1.5rem;
 }
 
+.text5 {
+    color: #d2e4e4;
+    text-shadow: 3px -3px 3px #0e0d0d;
+}
+
+.text6 {
+    font-family: "微软雅黑", "Dosis", sans-serif;
+    /* font-weight: bold; */
+    font-size: 1.5rem;
+    /* 文字大小 */
+    background: linear-gradient(to bottom, #e60826, #ed8230);
+    /* 漸層顏色 */
+    -webkit-background-clip: text;
+    /* 僅將背景漸層裁剪到文字部分 */
+    -webkit-text-fill-color: transparent;
+    /* 使背景漸層可見，填充透明 */
+    text-align: center;
+    /* 文字居中對齊 */
+}
+
 /* ___________________所有button按鈕效果_______________________________ */
 /* 開始抽牌按鈕 */
 .button1 {
@@ -87,6 +107,33 @@
     transform: scale(0.95);
     /* 按壓時縮小 */
     background-color: #470838;
+    /* 按壓時顏色改變 */
+}
+
+.button2 {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #f9f7f7;
+    background-color: #cf6dab;
+    border: none;
+    border-radius: 15px;
+    /* 圓角 */
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* 按鈕陰影 */
+}
+
+.button2:hover {
+    background-color: #e85fbd;
+    /* 滑鼠懸停效果 */
+}
+
+.button2:active {
+    transform: scale(0.95);
+    /* 按壓時縮小 */
+    background-color: #db1a6a;
     /* 按壓時顏色改變 */
 }
 

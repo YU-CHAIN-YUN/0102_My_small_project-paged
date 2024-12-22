@@ -199,4 +199,11 @@ function drawImages() {
 
         resultContainer.appendChild(imgContainer);
     });
+    // 獲取 result0 並將其顯示
+    const result0 = document.getElementById('result0');
+    result0.style.display = 'inline-block';
+
+    // 獲取 AI_button 並將其顯示
+    const AI_button = document.getElementById('AI_button');
+    AI_button.style.display = 'block';
 }

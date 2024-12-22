@@ -68,6 +68,33 @@
             }
         }
 
+        /* 輸入牌數框 */
+        input[type="number"] {
+            background-color: #222;
+            color: white;
+            border: 1px solid #555;
+            padding: 5px;
+            border-radius: 5px;
+            width: 400px;
+            text-align: center;
+        }
+
+        input[type="number"]::placeholder {
+            color: #aaa;
+        }
+
+        /* 列排版 */
+        #result0 {
+            display: none;
+            background-color: rgba(85, 88, 91, 0.422);
+            padding: 20px;
+            border-radius: 20px;
+            color: white;
+            /* 設定文字顏色為白色 */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
         /* 列排版 */
         #result {
             display: flex;
@@ -231,10 +258,6 @@
                 transform: rotateY(0deg);
             }
         }
-
-        .text-center {
-            z-index: 9999;
-        }
     </style>
 </head>
 
@@ -262,6 +285,7 @@
                     </p>
                 </h1>
                 <br><br><br><br><br><br>
+                <!-- _______________輪播圖_____________ -->
                 <div translate="no" class="py-5">
                     <div id="drag-container">
                         <div id="spin-container">
@@ -418,19 +442,49 @@
                     </script>
                 </div>
                 <br /><br /><br><br><br><br><br><br>
+                <!-- ______________抽牌注意事項___________ -->
+                <div style="background-color: rgba(88, 90, 93, 0.453);padding: 30px;border-radius:20px;">
+                    <div style="border: 2px dashed rgb(228, 228, 137); border-radius: 20px; padding: 20px;">
+                        <h1 class="text5">抽牌前請先過目以下資訊:</h1>
+                        <h5 class="text6">(此系統提供生活忙碌，無法用實體塔羅牌，藉由科技的神祕力量幫你完成解惑...)</h5>
+                        <ul class="text4" style="list-style-type: disc;">
+                            <li>本站使用的是萊德偉特塔羅牌，78 張牌，包含逆位</li>
+                            <li>請先想清楚你的問題，再依據你的問題選擇適合的牌陣和所需要的卡牌數(對照後面的牌陣使用方法)</li>
+                            <li>在開始占卜之前，確定你要問的問題。問題應該是明確和具體的，不過分泛泛或含糊。</li>
+                            <li>不可於24小時內重複占卜完全相同的問題，否則第二次後都會不準喔</li>
+                            <li>不可在一次洗牌中問多條問題。</li>
+                            <li>塔羅占卜最多只占卜到未來12個月的事，絕對問不到多於12個月的事情。</li>
+                            <li>占卜是一個給予你方向而不是決定用的工具，對於占卜結果請不要太上心</li>
+                        </ul>
+
+                    </div>
+                </div><br><br>
+                <!-- 抽牌系統 -->
                 <div class="text-center d-block">
                     <div class="form-group">
-                        <label for="numImages" class="text4 py-3 px-2" style="border: 2px dotted pink;">點我輸入抽取的塔羅牌數量(最多 5 張)：</label><br><br>
-                        <input type="number" class="form-control" style="z-index: 9999;" id="numImages" min="1" max="5"
-                            value="1">
+                        <label for="numImages" class="button2 text4 py-3 px-2">點我輸入抽取的塔羅牌數量(最多 5 張)：</label><br><br>
+                        <div class="d-flex justify-content-center">
+                            <input type="number" class="form-control" id="numImages" min="1" max="5" value="1">
+                        </div>
                     </div>
 
                     <!-- 抽取圖片按鈕 -->
-                    <button class="btn button1 mt-3" onclick="drawImages()">抽取圖片</button>
+                    <button class="btn button1 mt-3" onclick="drawImages()">抽取圖片</button><br><br>
 
                     <!-- 顯示圖片的區域 -->
-                    <div id="result" class="mt-4">
-                        <!-- 抽取的圖片將顯示在這裡 -->
+                    <div>
+                        <div id="result0">
+                            <div id="result" class="mt-4">
+                                <!-- 抽取的圖片將顯示在這裡 -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <div id="AI_button" style="display: none;"> <!-- 初始隱藏 -->
+                        <p class="text4">(下方)求助ChatGPT大大解牌</p>
+                        <button class="button2"><a href="https://chatgpt.com/" target="_blank"
+                                class="text5">AI牌意解釋</a></button>
                     </div>
 
                 </div>
@@ -453,4 +507,5 @@
             });
     </script>
 </body>
+
 </html>

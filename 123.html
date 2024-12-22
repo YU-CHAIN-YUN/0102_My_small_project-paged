@@ -1,120 +1,134 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>隨機抽取圖片</title>
-  <!-- 引入 Bootstrap -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>顯示隱藏的內容</title>
   <style>
-    /* CSS 動畫 */
+    body {
+      background-color: black; /* 設定背景為黑色 */
+      color: white; /* 設定文字顏色為白色 */
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
     .image-container {
-      position: relative;
-      overflow: hidden;
+      text-align: center;
+      margin: 20px;
     }
 
     .image {
-      opacity: 0;
-      transform: translateY(-100px) scale(0.5);  /* 起始位置在上方，縮小 */
-      animation: drawAnimation 1s ease-out forwards;
+      max-width: 150px;
+      height: auto;
     }
 
-    @keyframes drawAnimation {
-      0% {
-        opacity: 0;
-        transform: translateY(-100px) scale(0.5); /* 開始時在上方，縮小 */
-      }
-      50% {
-        opacity: 1;
-        transform: translateY(20px) scale(1.2); /* 中途時略微放大 */
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1); /* 結束時恢復正常位置 */
-      }
+    .caption {
+      margin-top: 10px;
+      font-size: 16px;
+      color: white;
     }
 
-    /* 列排版 */
-    #result {
-      display: flex;
-      flex-direction: row; /* 水平排列 */
-      justify-content: center; /* 居中排列 */
-      gap: 10px; /* 每張牌之間的間距 */
+    .button1, .button2 {
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .button1:hover, .button2:hover {
+      background-color: #666;
+    }
+
+    input[type="number"] {
+      background-color: #222;
+      color: white;
+      border: 1px solid #555;
+      padding: 5px;
+      border-radius: 5px;
+      width: 80px;
+      text-align: center;
+    }
+
+    input[type="number"]::placeholder {
+      color: #aaa;
     }
   </style>
 </head>
+
 <body>
-  <div class="container mt-5">
-    <h2>從 20 張圖片中隨機抽取</h2>
-
-    <!-- 選擇抽取的圖片數量 -->
+  <!-- 抽牌系統 -->
+  <div class="text-center d-block">
     <div class="form-group">
-      <label for="numImages">選擇抽取的圖片數量（最多 5 張）：</label>
-      <input type="number" class="form-control" id="numImages" min="1" max="5" value="1">
-    </div>
-
-    <!-- 顯示圖片的區域 -->
-    <div id="result" class="mt-4">
-      <!-- 抽取的圖片將顯示在這裡 -->
+      <label for="numImages" class="button2 text4 py-3 px-2">點我輸入抽取的塔羅牌數量(最多 5 張)：</label><br><br>
+      <input type="number" id="numImages" min="1" max="5" value="1">
     </div>
 
     <!-- 抽取圖片按鈕 -->
-    <button class="btn btn-primary mt-3" onclick="drawImages()">抽取圖片</button>
-  </div>
+    <button class="btn button1 mt-3" onclick="drawImages()">抽取圖片</button>
 
-  <!-- 引入 Bootstrap 和 jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- 顯示圖片的區域 -->
+    <div id="result" class="mt-4"></div>
 
-  <script>
-    // 假設這是你的 20 張圖片的路徑
-    const images = [
-      'image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg',
-      'image6.jpg', 'image7.jpg', 'image8.jpg', 'image9.jpg', 'image10.jpg',
-      'image11.jpg', 'image12.jpg', 'image13.jpg', 'image14.jpg', 'image15.jpg',
-      'image16.jpg', 'image17.jpg', 'image18.jpg', 'image19.jpg', 'image20.jpg'
-    ];
+    <script>
+      // 圖片及其解釋
+      const images = [
+        { src: "https://via.placeholder.com/150?text=%E6%84%9A%E8%80%85", caption: "愚者 - 代表冒險與自由的開始" },
+        { src: "https://via.placeholder.com/150?text=%E9%AD%94%E8%A1%93%E5%B8%AB", caption: "魔術師 - 代表創造力與行動力" },
+        { src: "https://via.placeholder.com/150?text=%E5%A5%B3%E7%A5%AD%E5%B8%AB", caption: "女祭司 - 代表智慧與直覺" },
+        { src: "https://via.placeholder.com/150?text=%E7%9A%87%E5%90%8E", caption: "皇后 - 代表豐饒與慈愛" },
+        { src: "https://via.placeholder.com/150?text=%E7%9A%87%E5%B8%9D", caption: "皇帝 - 代表秩序與權威" },
+      ];
 
-    // 抽取圖片的函數
-    function drawImages() {
-      // 取得使用者選擇的抽取數量
-      const numImages = parseInt(document.getElementById('numImages').value);
-      
-      // 檢查輸入的數量是否合法
-      if (numImages < 1 || numImages > 5) {
-        alert("請選擇 1 到 5 張圖片");
-        return;
-      }
+      // 抽取圖片的函數
+      function drawImages() {
+        const numImages = parseInt(document.getElementById('numImages').value);
 
-      // 隨機抽取圖片
-      let selectedImages = [];
-      while (selectedImages.length < numImages) {
-        const randomIndex = Math.floor(Math.random() * images.length);
-        if (!selectedImages.includes(randomIndex)) {
-          selectedImages.push(randomIndex);
+        // 驗證數量
+        if (numImages < 1 || numImages > 5) {
+          alert("請選擇 1 到 5 張圖片");
+          return;
         }
+
+        // 隨機抽取圖片
+        const selectedImages = [];
+        while (selectedImages.length < numImages) {
+          const randomIndex = Math.floor(Math.random() * images.length);
+          if (!selectedImages.includes(randomIndex)) {
+            selectedImages.push(randomIndex);
+          }
+        }
+
+        // 更新結果區域
+        const resultContainer = document.getElementById('result');
+        resultContainer.innerHTML = ''; // 清空上次結果
+
+        selectedImages.forEach((index) => {
+          const imgData = images[index];
+
+          // 創建圖片容器
+          const imgContainer = document.createElement('div');
+          imgContainer.classList.add('image-container');
+
+          // 創建圖片
+          const img = document.createElement('img');
+          img.src = imgData.src;
+          img.classList.add('image');
+
+          // 創建解釋文字
+          const caption = document.createElement('div');
+          caption.classList.add('caption');
+          caption.textContent = imgData.caption;
+
+          imgContainer.appendChild(img);
+          imgContainer.appendChild(caption);
+          resultContainer.appendChild(imgContainer);
+        });
       }
-
-      // 顯示抽取的圖片
-      const resultContainer = document.getElementById('result');
-      resultContainer.innerHTML = ''; // 清空上次的結果
-
-      selectedImages.forEach((index) => {
-        const img = document.createElement('img');
-        img.src = images[index];
-        img.classList.add('image'); // 加入動畫的類別
-        img.style.maxWidth = '150px'; // 控制圖片大小
-        img.style.height = 'auto';
-
-        // 創建一個包裹圖片的容器，用來控制動畫
-        const imgContainer = document.createElement('div');
-        imgContainer.classList.add('image-container');
-        imgContainer.appendChild(img);
-
-        resultContainer.appendChild(imgContainer);
-      });
-    }
-  </script>
+    </script>
 </body>
+
 </html>
