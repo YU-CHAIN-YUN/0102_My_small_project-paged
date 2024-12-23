@@ -81,6 +81,18 @@
     /* 文字居中對齊 */
 }
 
+.text7 {
+    color: #d2e4e4;
+    text-shadow: 3px -3px 3px #0e0d0d;
+    font-size: 1.0rem;
+}
+
+.text8 {
+    color: #d2e4e4;
+    text-shadow: 3px -3px 3px #0e0d0d;
+    font-size: 1.3rem;
+}
+
 /* ___________________所有button按鈕效果_______________________________ */
 /* 開始抽牌按鈕 */
 .button1 {
