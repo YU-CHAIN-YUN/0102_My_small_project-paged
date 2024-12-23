@@ -150,24 +150,6 @@
             font-size: 20px;
             text-align: center;
         }
-
-        /* 驗證通過 */
-        input[type="text"]:valid+span::after,
-        input[type="email"]:valid+span::after,
-        input[type="password"]:valid+span::after,
-        input[type="date"]:valid+span::after {
-            content: "✔";
-            color: green;
-        }
-
-        /* 驗證不通過 */
-        input[type="text"]:invalid+span::after,
-        input[type="email"]:invalid+span::after,
-        input[type="password"]:invalid+span::after,
-        input[type="date"]:invalid+span::after {
-            content: "✘";
-            color: rgb(255, 6, 6);
-        }
     </style>
 </head>
 
@@ -186,74 +168,80 @@
 
     <!-- 會員登入 -->
     <div class="container">
-        <div id="login" class="card">
-            <div class="card-body">
-                <h2 class="card-title text-center text2">會員登入</h2>
-                <form>
-                    <div class="form-group py-2 text2">
-                        <label for="username">電子郵件:</label>
-                        <input type="email" class="form-control" id="username" name="username" placeholder="請輸入您的電子郵件"
-                            required /><span></span>
+        <div>
+            <!-- 會員登入 -->
+            <div id="login" class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center">會員登入</h2>
+                    <form>
+                        <div class="form-group py-2">
+                            <label for="username">暱稱:</label>
+                            <input type="text" class="form-control" id="username" placeholder="請輸入您的暱稱" required />
+                        </div>
+                        <div class="form-group py-2">
+                            <label for="username1">電子郵件:</label>
+                            <input type="email" class="form-control" id="username1" placeholder="請輸入您的電子郵件" required />
+                        </div>
+                        <div class="form-group py-2">
+                            <label for="password">密碼:</label>
+                            <input type="password" class="form-control" id="password" placeholder="請輸入您的密碼" required />
+                        </div>
+                        <div class="form-group py-2">
+                            <input type="checkbox" /> 記住我
+                        </div>
+                        <div class="my-3 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-pill" onclick="handleLogin(event)">
+                                登入
+                            </button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-2">
+                        <a href="#register" class="link">註冊會員</a>
                     </div>
-                    <div class="form-group py-2 text2">
-                        <label for="password">密碼:</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="請輸入您的密碼"
-                            required /><span></span>
+                </div>
+            </div>
+
+            <!-- 註冊會員 -->
+            <div id="register" class="card mt-4" style="display: none">
+                <div class="card-body">
+                    <h2 class="card-title text-center">註冊會員</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="nickname">姓名(暱稱):</label>
+                            <input type="text" class="form-control" id="nickname" placeholder="請輸入您的暱稱" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="reg_username">電子郵件:</label>
+                            <input type="email" class="form-control" id="reg_username" placeholder="請輸入您的電子郵件"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="reg_password">密碼:</label>
+                            <input type="password" class="form-control" id="reg_password" placeholder="請輸入您的密碼"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_password">再次確認密碼:</label>
+                            <input type="password" class="form-control" id="confirm_password" placeholder="請再次輸入您的密碼"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday">生日:</label>
+                            <input type="date" class="form-control" id="birthday" required />
+                        </div>
+                        <div class="my-3 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-pill" onclick="handleRegister(event)">
+                                註冊
+                            </button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-2">
+                        <a href="#login" class="link">返回登入</a>
                     </div>
-                    <div class="form-group py-2 text2">
-                        <input type="checkbox"> 記住我
-                    </div>
-                    <div class="my-3 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-pill " onclick="handleLogin(event)">
-                            登入
-                        </button>
-                    </div>
-                </form>
-                <div class="text-center mt-2">
-                    <a href="#register" class="link">註冊會員</a>
                 </div>
             </div>
         </div>
-        <!-- 註冊會員框 -->
-        <div id="register" class="card mt-4" style="display: none">
-            <div class="card-body">
-                <h2 class="card-title text-center">註冊會員</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="nickname">姓名(暱稱):</label>
-                        <input type="text" class="form-control" id="nickname" name="nickname" placeholder="請輸入您的暱稱"
-                            required /><span></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="reg_username">電子郵件:</label>
-                        <input type="email" class="form-control" id="reg_username" name="reg_username"
-                            placeholder="請輸入您的電子郵件" required /><span></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="reg_password">密碼:</label>
-                        <input type="password" class="form-control" id="reg_password" name="reg_password"
-                            placeholder="請輸入您的密碼" required /><span></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirm_password">再次確認密碼:</label>
-                        <input type="password" class="form-control" id="confirm_password" name="confirm_password"
-                            placeholder="請再次輸入您的密碼" required /><span></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="birthday">生日:</label>
-                        <input type="date" class="form-control" id="birthday" name="birthday" required /><span></span>
-                    </div>
-                    <div class="my-3 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-pill" onclick="handleRegister(event)">
-                            註冊
-                        </button>
-                    </div>
-                </form>
-                <div class="text-center mt-2">
-                    <a href="#login" class="link">返回登入</a>
-                </div>
-            </div>
-        </div>
+
         <!-- 手手圖 -->
         <div>
             <div>
@@ -269,54 +257,80 @@
 
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script> -->
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
     <script>
+        // 切換到註冊表單的事件處理器
         document
             .querySelector('.link[href="#register"]')
             .addEventListener("click", function (event) {
-                event.preventDefault();
-                document.getElementById("login").style.display = "none";
-                document.getElementById("register").style.display = "block";
+                event.preventDefault(); // 阻止預設行為（避免跳轉到 #register）
+                document.getElementById("login").style.display = "none"; // 隱藏登入表單
+                document.getElementById("register").style.display = "block"; // 顯示註冊表單
             });
 
+        // 切換到登入表單的事件處理器
         document
             .querySelector('.link[href="#login"]')
             .addEventListener("click", function (event) {
-                event.preventDefault();
-                document.getElementById("register").style.display = "none";
-                document.getElementById("login").style.display = "block";
+                event.preventDefault(); // 阻止預設行為（避免跳轉到 #login）
+                document.getElementById("register").style.display = "none"; // 隱藏註冊表單
+                document.getElementById("login").style.display = "block"; // 顯示登入表單
             });
 
+        // 登入處理函式
         function handleLogin(event) {
             event.preventDefault(); // 防止表單提交刷新
-            const username = document.getElementById("username").value; // 帳號
+
+            // 獲取表單輸入的值
+            const nickname = document.getElementById("username").value; // 暱稱
+            const email = document.getElementById("username1").value; // 電子郵件
             const password = document.getElementById("password").value; // 密碼
 
-            if (!username || !password) {
-                alert("請輸入帳號與密碼!");
+            // 定義 Email 格式的正則表達式
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // 檢查輸入是否完整
+            if (!nickname || !email || !password) {
+                alert("請輸入暱稱、電子郵件和密碼!"); // 提示使用者輸入完整
+            } else if (!emailRegex.test(email)) {
+                // 驗證 Email 格式
+                alert("請輸入有效的 Email 地址!");
             } else {
-                localStorage.setItem("nickname", username); // 儲存帳號作為暱稱
-                window.location.href = "./index.html"; // 跳回首頁
+                alert("登入成功!"); // 驗證成功
+                localStorage.setItem("nickname", nickname); // 儲存暱稱到 localStorage
+                window.location.href = "./index.html"; // 跳轉到首頁
             }
         }
 
+        // 註冊處理函式
         function handleRegister(event) {
             event.preventDefault(); // 防止表單提交刷新
-            const nickname = document.getElementById("nickname").value; // 暱稱
-            const regUsername = document.getElementById("reg_username").value; // 帳號
-            const regPassword = document.getElementById("reg_password").value; // 密碼
-            const confirmPassword =
-                document.getElementById("confirm_password").value; // 確認密碼
 
-            if (!nickname || !regUsername || !regPassword || !confirmPassword) {
-                alert("所有欄位皆為必填!");
-            } else if (regPassword !== confirmPassword) {
+            // 獲取表單輸入的值
+            const nickname = document.getElementById("nickname").value; // 暱稱
+            const email = document.getElementById("reg_username").value; // 電子郵件
+            const password = document.getElementById("reg_password").value; // 密碼
+            const confirmPassword = document.getElementById("confirm_password").value; // 確認密碼
+            const birthday = document.getElementById("birthday").value; // 生日
+
+            // 定義 Email 格式的正則表達式
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // 檢查輸入是否完整
+            if (!nickname || !email || !password || !confirmPassword || !birthday) {
+                alert("所有欄位皆為必填!"); // 提示使用者輸入完整
+            } else if (!emailRegex.test(email)) {
+                // 驗證 Email 格式
+                alert("請輸入有效的 Email 地址!");
+            } else if (password !== confirmPassword) {
+                // 檢查密碼與確認密碼是否一致
                 alert("密碼與確認密碼不一致!");
             } else {
-                localStorage.setItem("nickname", nickname); // 儲存暱稱
-                window.location.href = "./index.html"; // 跳回首頁
+                alert("註冊成功!"); // 註冊成功提示
+                localStorage.setItem("nickname", nickname); // 儲存暱稱到 localStorage
+                window.location.href = "./index.html"; // 跳轉到首頁
             }
         }
+
 
         // 手手的效果
         function showResponse() {

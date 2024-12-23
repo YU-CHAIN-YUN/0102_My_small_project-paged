@@ -475,6 +475,24 @@
         document.getElementById('navbar').innerHTML = data;
       });
   </script><br><br><br><br>
+  <!-- 歡迎訊息 -->
+  <div style="text-align: end;">
+    <div style="background-color: rgb(255, 255, 255);border-radius: 40px; display: inline-block;padding: 20px;margin-right: 20px;">
+      <h5 class="text6" id="welcomeMessage"></h5>
+    </div>
+  </div>
+  <script>
+    // 從 localStorage 取得暱稱
+    const nickname = localStorage.getItem("nickname");
+
+    if (nickname) {
+      // 顯示歡迎訊息
+      document.getElementById("welcomeMessage").innerText = `歡迎, ${nickname}!`;
+    } else {
+      // 若沒有暱稱，提醒使用者需要登入
+      document.getElementById("welcomeMessage").innerText = "請先登入!";
+    }
+  </script>
   <!-- ________________________我是網頁部分_______________________________________ -->
   <section>
     <!-- 標題 -->
