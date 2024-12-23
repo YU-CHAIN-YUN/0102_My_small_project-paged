@@ -477,21 +477,42 @@
   </script><br><br><br><br>
   <!-- 歡迎訊息 -->
   <div style="text-align: end;">
-    <div style="background-color: rgb(255, 255, 255);border-radius: 40px; display: inline-block;padding: 20px;margin-right: 20px;">
-      <h5 class="text6" id="welcomeMessage"></h5>
+    <div id="welcome-container"
+      style="background-color: rgb(243, 233, 233); border-radius: 40px; display: none; padding: 20px 40px; margin-right: 20px;">
+      <!-- 歡迎訊息 -->
+      <h5 class="text6" id="welcome-message"></h5>
+      <!-- 登出按鈕，初始隱藏 -->
+      <button id="logout-button" class="button2">會員登出</button>
     </div>
   </div>
   <script>
-    // 從 localStorage 取得暱稱
-    const nickname = localStorage.getItem("nickname");
+    // 初始化頁面
+    window.onload = function () {
+      // 從 localStorage 獲取會員暱稱
+      const nickname = localStorage.getItem("nickname");
+      const welcomeContainer = document.getElementById("welcome-container");
+      const welcomeMessageElement = document.getElementById("welcome-message");
+      const logoutButton = document.getElementById("logout-button");
 
-    if (nickname) {
-      // 顯示歡迎訊息
-      document.getElementById("welcomeMessage").innerText = `歡迎, ${nickname}!`;
-    } else {
-      // 若沒有暱稱，提醒使用者需要登入
-      document.getElementById("welcomeMessage").innerText = "請先登入!";
-    }
+      if (nickname) {
+        // 如果暱稱存在，顯示歡迎訊息和外框
+        welcomeMessageElement.textContent = `歡迎，${nickname}！`;
+        welcomeContainer.style.display = "inline-block"; // 顯示整個外框
+      } else {
+        // 如果暱稱不存在，隱藏外框
+        welcomeContainer.style.display = "none";
+      }
+    };
+
+    // 登出功能
+    document.getElementById("logout-button").addEventListener("click", function () {
+      // 清空 localStorage 中的暱稱
+      localStorage.removeItem("nickname");
+      // 彈出提示訊息
+      alert("您已成功登出！");
+      // 隱藏整個外框
+      document.getElementById("welcome-container").style.display = "none";
+    });
   </script>
   <!-- ________________________我是網頁部分_______________________________________ -->
   <section>
