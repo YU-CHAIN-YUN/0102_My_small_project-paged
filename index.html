@@ -126,6 +126,15 @@
       /* 預設寬度 */
     }
 
+    #welcome-container {
+      background-color: rgb(243, 233, 233);
+      border-radius: 30px;
+      display: none;
+      padding: 15px 40px;
+      margin-right: 40px;
+      margin-bottom: 10px;
+    }
+
     /* 在手機上縮放圖片 */
     @media (max-width: 576px) {
 
@@ -178,20 +187,23 @@
         width: 200px;
       }
 
-      .image-carousel-container {
-        /* overflow: hidden; */
-        /* position: relative; */
-        /* height: auto; */
-        width: 500px;
-        /* margin: 0 auto; */
+      .text6 {
+        font-size: 0.9rem;
+        /* 文字大小 */
       }
 
-      .image-carousel img {
-        /* width: auto; */
-        height: 100px;
-        /* object-fit: cover; */
-        /* padding: 10px; */
+      .button2 {
+        padding: 3px 7px;
+        font-size: 10px;
       }
+
+      #welcome-container {
+        border-radius: 15px;
+        padding: 5px 18px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+
     }
 
     /* ________________________________________________________ */
@@ -242,19 +254,21 @@
         height: 200px;
       }
 
-      .image-carousel-container {
-        /* overflow: hidden; */
-        /* position: relative; */
-        /* height: auto; */
-        width: 800px;
-        /* margin: 0 auto; */
+      .text6 {
+        font-size: 1.2rem;
+        /* 文字大小 */
       }
 
-      .image-carousel img {
-        /* width: auto; */
-        height: 150px;
-        /* object-fit: cover; */
-        /* padding: 10px; */
+      .button2 {
+        padding: 5px 10px;
+        font-size: 15px;
+      }
+
+      #welcome-container {
+        border-radius: 20px;
+        padding: 10px 30px;
+        margin-right: 20px;
+        margin-bottom: 10px;
       }
     }
 
@@ -300,12 +314,15 @@
       }
     }
 
-    /* ______________________跑馬圖____________________________________ */
+    /* ______________________跑馬圖 (響應式) ____________________________________ */
     .image-carousel-container {
       overflow: hidden;
       position: relative;
       height: auto;
-      width: 1000px;
+      width: 100%;
+      /* 使容器寬度自適應螢幕 */
+      max-width: 1000px;
+      /* 可選：設置最大寬度 */
       margin: 0 auto;
     }
 
@@ -315,10 +332,26 @@
     }
 
     .image-carousel img {
-      width: auto;
-      height: 200px;
+      width: 100%;
+      /* 圖片寬度100%，根據容器寬度自適應 */
+      height: auto;
+      /* 保持圖片比例 */
+      width: 15%;
+      height: auto;
       object-fit: cover;
+      /* 使圖片填滿容器，但保持比例 */
       padding: 10px;
+    }
+
+    /* 調整滾動動畫 */
+    @keyframes image-carousel-scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
     }
 
     @keyframes image-carousel-scroll {
@@ -477,8 +510,7 @@
   </script><br><br><br><br>
   <!-- 歡迎訊息 -->
   <div style="text-align: end;">
-    <div id="welcome-container"
-      style="background-color: rgb(243, 233, 233); border-radius: 40px; display: none; padding: 20px 40px; margin-right: 20px;">
+    <div id="welcome-container">
       <!-- 歡迎訊息 -->
       <h5 class="text6" id="welcome-message"></h5>
       <!-- 登出按鈕，初始隱藏 -->
@@ -577,10 +609,21 @@
       const carousel = document.querySelector('.image-carousel');
       const container = document.querySelector('.image-carousel-container');
 
-      const totalWidth = carousel.scrollWidth / 1; // 單次圖片組寬度
-      const duration = totalWidth / 80; // 調整滾動速度（100px/sec）
+      function setCarouselSpeed() {
+        // 重新計算總寬度
+        const totalWidth = carousel.scrollWidth; // 計算圖片組的總寬度
+        const containerWidth = container.clientWidth; // 容器寬度
 
-      carousel.style.animationDuration = `${duration}s`;
+        // 計算動畫持續時間，根據容器寬度來調整速度
+        const duration = totalWidth / 80; // 設置滾動速度
+        carousel.style.animationDuration = `${duration}s`;
+      }
+
+      // 設定初始滾動速度
+      setCarouselSpeed();
+
+      // 當窗口大小改變時，重新計算滾動速度
+      window.addEventListener('resize', setCarouselSpeed);
     </script>
     <br><br><br><br>
     <!-- 塔羅圖框介紹 -->
