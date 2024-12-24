@@ -513,10 +513,10 @@
   </script><br><br><br><br>
   <!-- 歡迎訊息 -->
   <div style="text-align: end;">
+    <!-- 初始隱藏 -->
     <div id="welcome-container">
       <!-- 歡迎訊息 -->
       <h5 class="text6" id="welcome-message"></h5>
-      <!-- 登出按鈕，初始隱藏 -->
       <button id="logout-button" class="button2">會員登出</button>
     </div>
   </div>
@@ -547,6 +547,7 @@
       alert("您已成功登出！");
       // 隱藏整個外框
       document.getElementById("welcome-container").style.display = "none";
+      window.location.href = "login.html"; // 登出後跳轉
     });
   </script>
   <!-- ________________________我是網頁部分_______________________________________ -->
